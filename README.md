@@ -1,4 +1,4 @@
-# ptc_android_test
+# ptc_ios_test
 
 ![alt tag](https://lh5.googleusercontent.com/p/AF1QipNG9Qy7WfJZmwDKnxVACa2kUhTNj11wTmE56Wb8=w389-h160-k-no)
 
