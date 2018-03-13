@@ -53,7 +53,7 @@ The list item structure should include:
 - Year;
 
 *Simillar to*
-![Screenshot](screen_1.jpg)
+![Screenshot](screen1.png)
 
 The result detail should include:
 
@@ -64,7 +64,7 @@ The result detail should include:
 - Year;
 
 *Simillar to*
-![Screenshot](screen_2.jpg)
+![Screenshot](screen2.png)
 
 It has to use the following API - https://developers.themoviedb.org/3/getting-started/introduction
 
