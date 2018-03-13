@@ -68,7 +68,7 @@ The result detail should include:
 
 It has to use the following API - https://developers.themoviedb.org/3/getting-started/introduction
 
-We value the following usages\implementations:
+We recommend the following usages\implementations:
 
 - Clear architectural pattern (MVP, MVVM, etc)
 - AFNetworking http client;
