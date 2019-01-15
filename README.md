@@ -1,6 +1,7 @@
 # ptc_ios_test
 
-![alt tag](https://lh5.googleusercontent.com/p/AF1QipNG9Qy7WfJZmwDKnxVACa2kUhTNj11wTmE56Wb8=w389-h160-k-no)
+
+![alt tag](screen-porto-tech-center.jpg)
 
 Jumia Porto Tech Center (PTC) is an Agile IT development center, with around 200 IT-specialists, 
 where you will have the opportunity to participate in developing smart solutions for our group companies. 
@@ -31,47 +32,112 @@ The benefit list includes but is not limited to health insurance, parental bonus
 
 This repo represents the current admission test that is needed to apply for an Android Developer Position.
 
-***************************************************************************************************************
-IOS Practical Admission Test Level 1
-***************************************************************************************************************
+Android Practical Admission Test
+-
 
+The idea is create an app that is able to list products requested by a query. 
 
-Please create an app that is able to list movies by genre and by year.
+The application should composed by:
+
+    - Splash screen 
+    - Search page 
+    - Result list page 
+    - Item detail page
 
 The following requirements need to be met:
 
-The application needs to have a splash screen, search screen,a list screen and a result detail screen.
+The search must be able to list items from a certain actor or director.
 
-The flow should be splash->search screen->list results-> result detail;
+1. The splash screen:
+    - It's a loading page to request and save some configurations to be used. 
 
-The list item structure should include:
+2. The search page:
+    - It's a page that allow submit a query to get a result, like Google Search.
 
-- Title;
-- Poster Image;
-- Rating;
-- Genre;
-- Year;
+3. The result list page:
+    - It's a page that shows the query and respective result, like Google Search.
+    - For each result item should be displayed this information:
+        - Image;
+        - Name and brand;
+        - Price, old price and discount;
+        - Rating;
 
-*Simillar to*
-![Screenshot](screen1.png)
+4. The item detail page:
+    - It's a page that shows the information about the selected item
+    - Should be displayed this information:
+        - Image or image gallery;
+        - Name and brand;
+        - Price, old price and discount;
+        - Rating;
+        - Description;
+    
+5. The Challenge Submission:
+    - Create a pull request using the base "development_mocklab" 
+    - Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
+    - Write a description about your implementation
 
-The result detail should include:
+Use the following mocklab API 
+-
 
-- Title;
-- Genre;
-- Large Poster Image;
-- Description;
-- Year;
+NOTE: The mocklab API is based in JSON mocks, only supports the following requests.
 
-*Simillar to*
-![Screenshot](screen2.png)
+- Get configurations
 
-It has to use the following API - https://developers.themoviedb.org/3/getting-started/introduction
+    > http://nd7d1.mocklab.io/configurations/
+    
+    The currency should used to format the price and old price.
 
-We recommend the following usages\implementations:
+- Get list items with pagination
 
-- Clear architectural pattern (MVP, MVVM, etc)
-- AFNetworking http client;
-- CocoaPods/Carthage
+    > http://nd7d1.mocklab.io/search/phone/page/1/
+    
+    > http://nd7d1.mocklab.io/search/phone/page/2/
+
+    Paremeters:
+    - *"phone"* - the query
+    - *"1"* - the page number (pagination)
+
+- Get detail item
+
+    > http://nd7d1.mocklab.io/product/1/
+
+    > http://nd7d1.mocklab.io/product/2/
+
+    Paremeters:
+    - *"1"* - the product identifier "sku"
+    
+    
+- Failure cases
+
+    HTTP 200 - Success false:
+    > http://nd7d1.mocklab.io/product/3/
+    
+    HTTP 404 - Not Found:
+    > http://nd7d1.mocklab.io/search/phone/page/2/
+    
+    > http://nd7d1.mocklab.io/product/4/
 
 
+Required tech implementations:
+-
+- Android Architecture Components;
+- Material Design Components;
+- Kotlin;
+- Fragments;
+- DataBinding;
+
+
+We value the following implementations:
+-
+- Courotines or RxAndroid;
+- Animations;
+- Image Loader (Volley/Picasso/Glide);
+- Retrofit/OKHttp client for API communication;
+
+Similar screens:
+-
+
+![Screenshot](screen_1.jpg)
+
+
+![Screenshot](screen_2.jpg)
