@@ -32,7 +32,7 @@ The benefit list includes but is not limited to health insurance, parental bonus
 
 This repo represents the current admission test that is needed to apply for an iOS Developer Position.
 
-iOS Practical Admission Test
+iOS Challenge:
 -
 
 The idea is create an app that is able to list items requested by a query. 
@@ -81,7 +81,7 @@ The search must be able to list items from a certain actor or director.
         - Description;
 
 
-Use the following mock API 
+Mock API:
 -
 
 NOTE: The mocklab API is based in JSON mocks, only supports the following requests.
