@@ -30,14 +30,22 @@ We will offer you second home where you will find the opportunity for growth and
 You will have the opportunity to earn the bonus based on your excellent results. 
 The benefit list includes but is not limited to health insurance, parental bonus, snacks and fruits.
 
-This repo represents the current admission test that is needed to apply for an Android Developer Position.
+This repo represents the current admission test that is needed to apply for an iOS Developer Position.
 
-Android Practical Admission Test
+iOS Practical Admission Test
 -
 
-The idea is create an app that is able to list products requested by a query. 
+The idea is create an app that is able to list items requested by a query. 
 
-The application should composed by:
+The challenge submission:
+- Create a pull request using the base "development_mocklab" 
+- Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
+- Write a description about your implementation
+
+Description:
+-
+
+The application should be composed by:
 
     - Splash screen 
     - Search page 
@@ -56,6 +64,7 @@ The search must be able to list items from a certain actor or director.
 
 3. The result list page:
     - It's a page that shows the query and respective result, like Google Search.
+    - Reaching the bottom loads the next page (pagination).
     - For each result item should be displayed this information:
         - Image;
         - Name and brand;
@@ -63,20 +72,16 @@ The search must be able to list items from a certain actor or director.
         - Rating;
 
 4. The item detail page:
-    - It's a page that shows the information about the selected item
+    - It's a page that shows the information about the selected item.
     - Should be displayed this information:
         - Image or image gallery;
         - Name and brand;
         - Price, old price and discount;
         - Rating;
         - Description;
-    
-5. The Challenge Submission:
-    - Create a pull request using the base "development_mocklab" 
-    - Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
-    - Write a description about your implementation
 
-Use the following mocklab API 
+
+Use the following mock API 
 -
 
 NOTE: The mocklab API is based in JSON mocks, only supports the following requests.
@@ -120,24 +125,17 @@ NOTE: The mocklab API is based in JSON mocks, only supports the following reques
 
 Required tech implementations:
 -
-- Android Architecture Components;
+- MVVM;
+- Swift;
+- AutoLayout with Constraints;
 - Material Design Components;
-- Kotlin;
-- Fragments;
-- DataBinding;
 
 
 We value the following implementations:
 -
-- Courotines or RxAndroid;
+- Reactive Programming;
+- Data Binding;
 - Animations;
-- Image Loader (Volley/Picasso/Glide);
-- Retrofit/OKHttp client for API communication;
+- Image Loader;
+- API communication;
 
-Similar screens:
--
-
-![Screenshot](screen_1.jpg)
-
-
-![Screenshot](screen_2.jpg)
