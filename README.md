@@ -126,7 +126,7 @@ NOTE: The mocklab API is based in JSON mocks, only supports the following reques
 Required tech implementations:
 -
 - MVVM;
-- Swift;
+- Objective-C;
 - AutoLayout with Constraints;
 - Material Design Components;
 
