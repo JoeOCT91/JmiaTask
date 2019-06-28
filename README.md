@@ -38,7 +38,7 @@ iOS Challenge:
 The idea is create an app that is able to list items requested by a query. 
 
 The challenge submission:
-- Create a pull request using the base "development_mocklab" 
+- Create a pull request using this branch
 - Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
 - Write a description about your implementation
 
