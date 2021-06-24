@@ -12,6 +12,10 @@
 		6830A59F22C51C9D00C62108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6830A59D22C51C9D00C62108 /* Main.storyboard */; };
 		6830A5A122C51C9E00C62108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6830A5A022C51C9E00C62108 /* Assets.xcassets */; };
 		6830A5A422C51C9E00C62108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6830A5A222C51C9E00C62108 /* LaunchScreen.storyboard */; };
+		686D10552684FFB9005428A3 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10532684FFB9005428A3 /* BaseResponse.swift */; };
+		686D10562684FFB9005428A3 /* DataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10542684FFB9005428A3 /* DataResult.swift */; };
+		686D10592684FFC2005428A3 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10572684FFC2005428A3 /* NetworkRouter.swift */; };
+		686D105A2684FFC2005428A3 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10582684FFC2005428A3 /* NetworkManger.swift */; };
 		AF109F83A319C0FE3DC5F981 /* Pods_PTC_IOS_TEST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275756065F0D66A735CF6ECB /* Pods_PTC_IOS_TEST.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		6830A5A022C51C9E00C62108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6830A5A322C51C9E00C62108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6830A5A522C51C9E00C62108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		686D10532684FFB9005428A3 /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		686D10542684FFB9005428A3 /* DataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResult.swift; sourceTree = "<group>"; };
+		686D10572684FFC2005428A3 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		686D10582684FFC2005428A3 /* NetworkManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		F45C0D670579524A5019626B /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,9 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				682089C12684CA90005E2198 /* Splash screen */,
-				682089C22684CAAC005E2198 /* Search page */,
-				682089C32684CAC9005E2198 /* Result list page  */,
-				682089C42684CAD4005E2198 /* Item detail page */,
 			);
 			path = "Views + ViewModel";
 			sourceTree = "<group>";
@@ -63,24 +68,14 @@
 			isa = PBXGroup;
 			children = (
 				682089D32684CD45005E2198 /* Data */,
-				682089D22684CD3A005E2198 /* Repository */,
 				682089D12684CD1E005E2198 /* Remote */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		682089C02684CA5E005E2198 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		682089C12684CA90005E2198 /* Splash screen */ = {
 			isa = PBXGroup;
 			children = (
-				682089CA2684CBD2005E2198 /* View model */,
-				682089C92684CBC5005E2198 /* View */,
 				6830A5A222C51C9E00C62108 /* LaunchScreen.storyboard */,
 				6830A59B22C51C9D00C62108 /* ViewController.swift */,
 				6830A59D22C51C9D00C62108 /* Main.storyboard */,
@@ -88,106 +83,20 @@
 			path = "Splash screen";
 			sourceTree = "<group>";
 		};
-		682089C22684CAAC005E2198 /* Search page */ = {
-			isa = PBXGroup;
-			children = (
-				682089CE2684CC69005E2198 /* View model */,
-				682089CB2684CC53005E2198 /* View */,
-			);
-			path = "Search page";
-			sourceTree = "<group>";
-		};
-		682089C32684CAC9005E2198 /* Result list page  */ = {
-			isa = PBXGroup;
-			children = (
-				682089CF2684CC6E005E2198 /* View model */,
-				682089CC2684CC57005E2198 /* View */,
-			);
-			path = "Result list page ";
-			sourceTree = "<group>";
-		};
-		682089C42684CAD4005E2198 /* Item detail page */ = {
-			isa = PBXGroup;
-			children = (
-				682089D02684CC72005E2198 /* View model */,
-				682089CD2684CC5C005E2198 /* View */,
-			);
-			path = "Item detail page";
-			sourceTree = "<group>";
-		};
-		682089C92684CBC5005E2198 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		682089CA2684CBD2005E2198 /* View model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View model";
-			sourceTree = "<group>";
-		};
-		682089CB2684CC53005E2198 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		682089CC2684CC57005E2198 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		682089CD2684CC5C005E2198 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		682089CE2684CC69005E2198 /* View model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View model";
-			sourceTree = "<group>";
-		};
-		682089CF2684CC6E005E2198 /* View model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View model";
-			sourceTree = "<group>";
-		};
-		682089D02684CC72005E2198 /* View model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View model";
-			sourceTree = "<group>";
-		};
 		682089D12684CD1E005E2198 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				686D10582684FFC2005428A3 /* NetworkManger.swift */,
+				686D10572684FFC2005428A3 /* NetworkRouter.swift */,
 			);
 			path = Remote;
-			sourceTree = "<group>";
-		};
-		682089D22684CD3A005E2198 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		682089D32684CD45005E2198 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				686D10532684FFB9005428A3 /* BaseResponse.swift */,
+				686D10542684FFB9005428A3 /* DataResult.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -216,7 +125,6 @@
 				6830A59922C51C9D00C62108 /* AppDelegate.swift */,
 				682089BD2684CA1D005E2198 /* Views + ViewModel */,
 				682089BF2684CA42005E2198 /* Model */,
-				682089C02684CA5E005E2198 /* Util */,
 				6830A5A022C51C9E00C62108 /* Assets.xcassets */,
 				6830A5A522C51C9E00C62108 /* Info.plist */,
 			);
@@ -347,6 +255,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686D105A2684FFC2005428A3 /* NetworkManger.swift in Sources */,
+				686D10562684FFB9005428A3 /* DataResult.swift in Sources */,
+				686D10552684FFB9005428A3 /* BaseResponse.swift in Sources */,
+				686D10592684FFC2005428A3 /* NetworkRouter.swift in Sources */,
 				6830A59C22C51C9D00C62108 /* ViewController.swift in Sources */,
 				6830A59A22C51C9D00C62108 /* AppDelegate.swift in Sources */,
 			);
