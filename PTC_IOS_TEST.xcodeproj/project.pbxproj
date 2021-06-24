@@ -19,6 +19,8 @@
 		686D105D26850086005428A3 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D105C26850086005428A3 /* BaseRepository.swift */; };
 		686D105F268500AE005428A3 /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D105E268500AE005428A3 /* SplashRepository.swift */; };
 		686D106226850164005428A3 /* ConfigurationsDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D106126850164005428A3 /* ConfigurationsDataResult.swift */; };
+		686D1064268503F3005428A3 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D1063268503F3005428A3 /* SearchRepository.swift */; };
+		686D106626850485005428A3 /* SearchDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D106526850485005428A3 /* SearchDataResult.swift */; };
 		AF109F83A319C0FE3DC5F981 /* Pods_PTC_IOS_TEST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275756065F0D66A735CF6ECB /* Pods_PTC_IOS_TEST.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		686D105C26850086005428A3 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		686D105E268500AE005428A3 /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
 		686D106126850164005428A3 /* ConfigurationsDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsDataResult.swift; sourceTree = "<group>"; };
+		686D1063268503F3005428A3 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		686D106526850485005428A3 /* SearchDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataResult.swift; sourceTree = "<group>"; };
 		F45C0D670579524A5019626B /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,7 @@
 				686D10532684FFB9005428A3 /* BaseResponse.swift */,
 				686D10542684FFB9005428A3 /* DataResult.swift */,
 				686D106126850164005428A3 /* ConfigurationsDataResult.swift */,
+				686D106526850485005428A3 /* SearchDataResult.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				686D105C26850086005428A3 /* BaseRepository.swift */,
 				686D105E268500AE005428A3 /* SplashRepository.swift */,
+				686D1063268503F3005428A3 /* SearchRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -274,11 +280,13 @@
 			files = (
 				686D105A2684FFC2005428A3 /* NetworkManger.swift in Sources */,
 				686D105D26850086005428A3 /* BaseRepository.swift in Sources */,
+				686D106626850485005428A3 /* SearchDataResult.swift in Sources */,
 				686D10562684FFB9005428A3 /* DataResult.swift in Sources */,
 				686D10552684FFB9005428A3 /* BaseResponse.swift in Sources */,
 				686D105F268500AE005428A3 /* SplashRepository.swift in Sources */,
 				686D10592684FFC2005428A3 /* NetworkRouter.swift in Sources */,
 				686D106226850164005428A3 /* ConfigurationsDataResult.swift in Sources */,
+				686D1064268503F3005428A3 /* SearchRepository.swift in Sources */,
 				6830A59C22C51C9D00C62108 /* ViewController.swift in Sources */,
 				6830A59A22C51C9D00C62108 /* AppDelegate.swift in Sources */,
 			);

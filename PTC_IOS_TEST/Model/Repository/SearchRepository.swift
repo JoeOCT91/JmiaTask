@@ -1,5 +1,5 @@
 //
-//  SplashRepository.swift
+//  SearchRepository.swift
 //  PTC_IOS_TEST
 //
 //  Created by Mahmoud El-Melligy on 24/06/2021.
@@ -11,11 +11,11 @@ import RxSwift
 import ObjectMapper
 
 
-class SplashRepository: BaseRepository{
+class SearchRepository: BaseRepository{
     
-    func getConfigurations() -> BehaviorSubject<DataResult<ConfigurationsDataResult>> {
-        let observable: BehaviorSubject<DataResult<ConfigurationsDataResult>> = createObservable()
-        NetworkManger.configurationsRequest() { (dataResult: DataResult<ConfigurationsDataResult>) in
+    func search(query: String , pageNumber : Int) -> BehaviorSubject<DataResult<SearchDataResult>> {
+        let observable: BehaviorSubject<DataResult<SearchDataResult>> = createObservable()
+        NetworkManger.searchRequest(query: query,pageNumber: pageNumber) { (dataResult: DataResult<SearchDataResult>) in
             if self.isSuccess(baseDataResultObservable: observable, dataResult: dataResult){
                 self.onSuccess(baseDataResultObservable: observable, data: dataResult.data!)
             }else{
