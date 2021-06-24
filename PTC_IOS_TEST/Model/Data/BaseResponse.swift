@@ -13,6 +13,7 @@ class BaseResponse <T: Mappable> : Mappable{
     var data : T?
     var success : Bool?
     var error : BaseError?
+    var session : Session?
     
     init?(code: Int) {
     }
@@ -25,6 +26,7 @@ class BaseResponse <T: Mappable> : Mappable{
         data <- map["metadata"]
         success <- map["success"]
         error <- map["messages"]
+        session <- map["session"]
     }
 }
 
@@ -60,6 +62,24 @@ struct Error : Mappable {
     mutating func mapping(map: Map) {
         reason <- map["reason"]
         message <- map["message"]
+    }
+
+}
+
+struct Session : Mappable {
+    var id : String?
+    var expire : String?
+    var token : String?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        id <- map["id"]
+        expire <- map["expire"]
+        token <- map["YII_CSRF_TOKEN"]
     }
 
 }

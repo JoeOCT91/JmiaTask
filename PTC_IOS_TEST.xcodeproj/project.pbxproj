@@ -16,6 +16,9 @@
 		686D10562684FFB9005428A3 /* DataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10542684FFB9005428A3 /* DataResult.swift */; };
 		686D10592684FFC2005428A3 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10572684FFC2005428A3 /* NetworkRouter.swift */; };
 		686D105A2684FFC2005428A3 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D10582684FFC2005428A3 /* NetworkManger.swift */; };
+		686D105D26850086005428A3 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D105C26850086005428A3 /* BaseRepository.swift */; };
+		686D105F268500AE005428A3 /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D105E268500AE005428A3 /* SplashRepository.swift */; };
+		686D106226850164005428A3 /* ConfigurationsDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D106126850164005428A3 /* ConfigurationsDataResult.swift */; };
 		AF109F83A319C0FE3DC5F981 /* Pods_PTC_IOS_TEST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275756065F0D66A735CF6ECB /* Pods_PTC_IOS_TEST.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		686D10542684FFB9005428A3 /* DataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResult.swift; sourceTree = "<group>"; };
 		686D10572684FFC2005428A3 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		686D10582684FFC2005428A3 /* NetworkManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
+		686D105C26850086005428A3 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		686D105E268500AE005428A3 /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
+		686D106126850164005428A3 /* ConfigurationsDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsDataResult.swift; sourceTree = "<group>"; };
 		F45C0D670579524A5019626B /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +73,7 @@
 		682089BF2684CA42005E2198 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				686D105B2685004E005428A3 /* Repository */,
 				682089D32684CD45005E2198 /* Data */,
 				682089D12684CD1E005E2198 /* Remote */,
 			);
@@ -97,6 +104,7 @@
 			children = (
 				686D10532684FFB9005428A3 /* BaseResponse.swift */,
 				686D10542684FFB9005428A3 /* DataResult.swift */,
+				686D106126850164005428A3 /* ConfigurationsDataResult.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -129,6 +137,15 @@
 				6830A5A522C51C9E00C62108 /* Info.plist */,
 			);
 			path = PTC_IOS_TEST;
+			sourceTree = "<group>";
+		};
+		686D105B2685004E005428A3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				686D105C26850086005428A3 /* BaseRepository.swift */,
+				686D105E268500AE005428A3 /* SplashRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		9496131C05A20FE5B3D679C0 /* Pods */ = {
@@ -256,9 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				686D105A2684FFC2005428A3 /* NetworkManger.swift in Sources */,
+				686D105D26850086005428A3 /* BaseRepository.swift in Sources */,
 				686D10562684FFB9005428A3 /* DataResult.swift in Sources */,
 				686D10552684FFB9005428A3 /* BaseResponse.swift in Sources */,
+				686D105F268500AE005428A3 /* SplashRepository.swift in Sources */,
 				686D10592684FFC2005428A3 /* NetworkRouter.swift in Sources */,
+				686D106226850164005428A3 /* ConfigurationsDataResult.swift in Sources */,
 				6830A59C22C51C9D00C62108 /* ViewController.swift in Sources */,
 				6830A59A22C51C9D00C62108 /* AppDelegate.swift in Sources */,
 			);
