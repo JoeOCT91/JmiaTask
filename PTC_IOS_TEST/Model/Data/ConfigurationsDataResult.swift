@@ -26,22 +26,22 @@ struct ConfigurationsDataResult : Mappable {
 
 struct Currency : Mappable {
     var iso : String?
-    var currency_symbol : String?
+    var currencySymbol : String?
     var position : Int?
     var decimals : Int?
-    var thousands_sep : String?
-    var decimals_sep : String?
+    var thousandsSep : String?
+    var decimalsSep : String?
     
     init?(map: Map) {
     }
     
     mutating func mapping(map: Map) {
         iso <- map["iso"]
-        currency_symbol <- map["currency_symbol"]
+        currencySymbol <- map["currency_symbol"]
         position <- map["position"]
         decimals <- map["decimals"]
-        thousands_sep <- map["thousands_sep"]
-        decimals_sep <- map["decimals_sep"]
+        thousandsSep <- map["thousands_sep"]
+        decimalsSep <- map["decimals_sep"]
     }
     
 }
@@ -64,17 +64,17 @@ struct Languages : Mappable {
 }
 
 struct Support : Mappable {
-    var phone_number : String?
-    var call_to_order_enabled : Bool?
-    var cs_email : String?
+    var phoneNumber : String?
+    var callToOrderEnabled : Bool?
+    var csEmail : String?
     
     init?(map: Map) {
     }
     
     mutating func mapping(map: Map) {
-        phone_number <- map["phone_number"]
-        call_to_order_enabled <- map["call_to_order_enabled"]
-        cs_email <- map["cs_email"]
+        phoneNumber <- map["phone_number"]
+        callToOrderEnabled <- map["call_to_order_enabled"]
+        csEmail <- map["cs_email"]
     }
     
 }
