@@ -12,7 +12,8 @@ import Cosmos
 
 class ItemDetailViewController: BaseViewController {
     
-    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productBrand: UILabel!
     @IBOutlet weak var productOldPrice: UILabel!
@@ -72,16 +73,9 @@ class ItemDetailViewController: BaseViewController {
         productDescription.textColor = AppColors.blackColor
         productDescription.textAlignment = .left
         productDescription.font = UIFont.systemFont(ofSize: 14)
-        
-        productImage.sd_setImage(with: URL(string:  productDetails?.images?[0] ?? "")) { (downloadedImage, downloadExeption, cacheType, downloadURL) in
-            if let downloadExeption = downloadExeption{
-                print("Error downloading the image: \(downloadExeption.localizedDescription)")
-                self.productImage.isHidden = true
-            }else{
-                print("Successfully download image: \(String(describing: downloadURL?.absoluteString))")
-                self.productImage.isHidden = false
-            }
-        }
+        pageControl.numberOfPages = productDetails?.images?.count ?? 0
+        collectionView.reloadData()
+
     }
     
     func handelFailure(dataResult: DataResult<ProductDataResult>){
@@ -90,6 +84,32 @@ class ItemDetailViewController: BaseViewController {
     
 }
 
+
+extension ItemDetailViewController : UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return productDetails?.images?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductDetailsCell", for: indexPath) as! ProductDetailsCell
+        cell.setupCellUI(productImageString: productDetails?.images?[indexPath.row] ?? "")
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        pageControl.currentPage = indexPath.row
+    }
+    
+    
+}
 
 extension String {
     func changeStringToparagraphStyle() -> NSAttributedString {
