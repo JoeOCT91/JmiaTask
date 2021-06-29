@@ -23,6 +23,7 @@ class SearchViewController: BaseViewController {
     var searchedData = [String]()
     var searchedDataLast = String()
     var searchPageNumber = 1
+    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,6 @@ class SearchViewController: BaseViewController {
         setupNavigationBarUI(isHomePage: true)
         fetchProductData(query: "phone")
         searchBarTextField.delegate = self
-        
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
             searchedDataLast = item
             performSegue(withIdentifier: "goToResultListViewController" , sender: self)
@@ -76,6 +76,8 @@ class SearchViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultListViewController = segue.destination as? ResultListViewController {
             resultListViewController.comingSearchedData = searchedDataLast
+        }else if let itemDetailViewController = segue.destination as? ItemDetailViewController {
+            itemDetailViewController.productData = productData[selectedIndex]
         }
     }
     
@@ -101,6 +103,11 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "goToItemDetailScreen" , sender: self)
+    }
+    
     
 }
 
@@ -108,7 +115,6 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
 extension SearchViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchBarTextField.resignFirstResponder()
         if let text = searchBarTextField.text , !text.isEmpty{
             if !searchedData.contains(text) {
                 searchedData.append(text)
@@ -124,6 +130,7 @@ extension SearchViewController: UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        searchBarTextField.resignFirstResponder()
         dropButton.dataSource = viewModel.getSearchStrings()
         dropButton.show()
         resultProductCollectionView.isHidden = true

@@ -149,6 +149,7 @@
                         <outlet property="searchBarTextField" destination="ohH-av-kXY" id="EHA-GS-5Cr"/>
                         <outlet property="searchBarView" destination="t8x-NS-42E" id="vN0-u9-5nW"/>
                         <segue destination="tbe-FY-96Y" kind="show" identifier="goToResultListViewController" animates="NO" id="UMq-5Y-dGK"/>
+                        <segue destination="fSa-Yv-wxh" kind="show" identifier="goToItemDetailScreen" id="yqA-sY-m9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -163,7 +164,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZd-7E-ybV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1827" y="90"/>
+            <point key="canvasLocation" x="1701" y="-54"/>
+        </scene>
+        <!--ItemDetailScreen-->
+        <scene sceneID="ho3-ZK-BAj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemDetailScreen" id="fSa-Yv-wxh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FQJ-wT-Oki"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwu-G1-nf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1w4-N7-y4t">
