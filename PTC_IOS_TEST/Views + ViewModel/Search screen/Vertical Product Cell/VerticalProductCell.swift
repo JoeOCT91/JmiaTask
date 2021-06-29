@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import Shimmer
 
-class HorizontalProductCell: UICollectionViewCell {
+class VerticalProductCell: UICollectionViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!

@@ -30,7 +30,7 @@ class NetworkRouter{
                 case .configurations:
                     return URL(string: URLS.URL_Configurations)!
                 case .search(let query, let pageNumber):
-                    return URL(string: String(format: URLS.URL_Search, query, pageNumber))!
+                    return URL(string: String(format: URLS.URL_Search, query.trimmingCharacters(in: .whitespacesAndNewlines), pageNumber))!
                 case .product(let sku):
                     return URL(string: String(format: URLS.URL_Product, sku))!
                     

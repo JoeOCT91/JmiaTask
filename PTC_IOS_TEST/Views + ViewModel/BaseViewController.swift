@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 import RxSwift
+import DropDown
+
 
 class BaseViewController: UIViewController {
+    var dropButton = DropDown()
     let baseDisposeBag = DisposeBag()
     var loadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     var badgeBarButton = BadgeBarButtonItem()
@@ -31,4 +34,12 @@ class BaseViewController: UIViewController {
         self.present(getNextViewContoller(navigateKey: navigateKey), animated: true, completion: nil)
     }
     
+    func setupDropDownList(searchBarTextField : UITextField){
+        dropButton.anchorView = searchBarTextField
+        dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
+        dropButton.textColor = AppColors.blackColor
+        dropButton.backgroundColor = AppColors.jumiaOrangeColor
+        dropButton.direction = .bottom
+        DropDown.startListeningToKeyboard()
+    }
 }

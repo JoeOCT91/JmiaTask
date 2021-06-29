@@ -19,4 +19,16 @@ extension UITextField {
         leftViewMode = .always
         self.tintColor = AppColors.blackColor
     }
+    
+    func setupSearchBarUI(){
+        self.tintColor = AppColors.blackColor
+        self.textColor = AppColors.blackColor
+        self.backgroundColor = AppColors.jumiaOrangeColor
+        self.returnKeyType = .search
+        
+        self.attributedPlaceholder = NSAttributedString(string: "Search for products",
+                                                                      attributes: [NSAttributedString.Key.foregroundColor: AppColors.blackColor])
+        self.setLeftView(image: #imageLiteral(resourceName: "search"))
+    }
+    
 }

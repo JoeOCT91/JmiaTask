@@ -1,53 +1,46 @@
 //
-//  SearchViewController.swift
+//  ResultListViewController.swift
 //  PTC_IOS_TEST
 //
-//  Created by Mahmoud El-Melligy on 28/06/2021.
+//  Created by Mahmoud El-Melligy on 29/06/2021.
 //  Copyright © 2021 Jumia. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class SearchViewController: BaseViewController {
+class ResultListViewController: BaseViewController {
     
     @IBOutlet weak var searchBarTextField: UITextField!
     @IBOutlet weak var searchBarView: UIView!
-    @IBOutlet weak var resultProductCollectionView: UICollectionView!
-    
-    
-    let viewModel = SearchViewModel()
-    
+    @IBOutlet weak var tableView: UITableView!
     
     var productData = [Results]()
+    
+    var comingSearchedData = String()
     var searchedData = [String]()
-    var searchedDataLast = String()
     var searchPageNumber = 1
     
+    let viewModel = ResultListViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround() 
+        hideKeyboardWhenTappedAround()
         setupNavigationBarUI(isHomePage: true)
-        fetchProductData(query: "phone")
-        searchBarTextField.delegate = self
-        
+        fetchProductData(query: comingSearchedData)
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
-            searchedDataLast = item
-            performSegue(withIdentifier: "goToResultListViewController" , sender: self)
+            self.fetchProductData(query: item)
+            
         }
+        searchBarTextField.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
+        navigationItem.hidesBackButton = true
         searchedData = viewModel.getSearchStrings()
-        searchBarTextField.text = .none
-        searchBarTextField.placeholder = "Search for products"
-        resultProductCollectionView.isHidden = false
+        searchBarTextField.text = comingSearchedData
         searchBarTextField.setupSearchBarUI()
         searchBarView.setupSearchBackgroundView()
         setupDropDownList(searchBarTextField: searchBarTextField)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     func fetchProductData(query: String){
@@ -56,7 +49,7 @@ class SearchViewController: BaseViewController {
             case .success:
                 self.handelSuccess()
                 self.productData.append(contentsOf: dataResult.data?.results ?? [])
-                self.resultProductCollectionView.reloadData()
+                self.tableView.reloadData()
             case .error:
                 self.handelFailure(dataResult: dataResult)
             case .loading:
@@ -73,39 +66,36 @@ class SearchViewController: BaseViewController {
         self.stopLoadingIndicator()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultListViewController = segue.destination as? ResultListViewController {
-            resultListViewController.comingSearchedData = searchedDataLast
-        }
-    }
-    
-    
 }
 
-//MARK:- search bar collection view set up
-extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension ResultListViewController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productData.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VerticalProductCell", for: indexPath) as! VerticalProductCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HorizontalProductCell") as! HorizontalProductCell
         cell.setupCellUI(productResult: productData[indexPath.row])
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == productData.count - 1 && searchPageNumber <= 2{
             searchPageNumber += 1
             fetchProductData(query: "phone")
         }
+        }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 203
     }
     
     
 }
 
+
 //textfield delegation methods
-extension SearchViewController: UITextFieldDelegate{
+extension ResultListViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchBarTextField.resignFirstResponder()
@@ -114,18 +104,20 @@ extension SearchViewController: UITextFieldDelegate{
                 searchedData.append(text)
                 viewModel.saveSearch(search: searchedData)
             }
-            dropButton.hide()
-            searchedDataLast = searchedData.last ?? ""
-            performSegue(withIdentifier: "goToResultListViewController" , sender: self)
+            self.fetchProductData(query: text)
         }else{
-            resultProductCollectionView.isHidden = false
+            back()
+            dropButton.hide()
         }
+        searchBarTextField.resignFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         dropButton.dataSource = viewModel.getSearchStrings()
         dropButton.show()
-        resultProductCollectionView.isHidden = true
+        tableView.isHidden = true
     }
+    
+    
 }

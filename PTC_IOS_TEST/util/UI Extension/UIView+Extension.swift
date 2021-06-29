@@ -9,6 +9,20 @@
 import UIKit
 // MARK:- IBInspectable Properties
 extension UIView {
+    
+    func setupSearchBackgroundView(){
+        self.backgroundColor = AppColors.jumiaOrangeColor
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+    }
+    
+    func discountBackgroundView(){
+        self.backgroundColor = AppColors.jumiaOrangeColor
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMinYCorner]
+    }
 
     @IBInspectable var shadowOffset: CGSize {
         get {

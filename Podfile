@@ -13,5 +13,5 @@ target 'PTC_IOS_TEST' do
   pod 'Shimmer'
   pod 'SDWebImage'
   pod 'DropDown'
-  
+  pod 'Cosmos'
 end

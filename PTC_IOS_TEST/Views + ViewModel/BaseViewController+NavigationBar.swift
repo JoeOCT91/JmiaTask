@@ -26,6 +26,10 @@ extension BaseViewController{
                 [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold)]
         }
     }
+    //navigation controller go back
+    @objc func back() {
+        self.navigationController?.popViewController(animated: false)
+    }
     
     // adding logo image to navigation bar
     func setNavigationItem(image: UIImage, imageFrameSize: CGSize) {
