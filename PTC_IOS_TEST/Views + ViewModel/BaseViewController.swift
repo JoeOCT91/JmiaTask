@@ -13,6 +13,7 @@ import RxSwift
 class BaseViewController: UIViewController {
     let baseDisposeBag = DisposeBag()
     var loadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    var badgeBarButton = BadgeBarButtonItem()
         
     public func showLoadingIndicator(){
         loadingIndicator.center = self.view.center
@@ -24,6 +25,10 @@ class BaseViewController: UIViewController {
     
     public func stopLoadingIndicator(){
         loadingIndicator.stopAnimating()
+    }
+    
+    public func navigateController(navigateKey : NavigationKeys){
+        self.present(getNextViewContoller(navigateKey: navigateKey), animated: true, completion: nil)
     }
     
 }

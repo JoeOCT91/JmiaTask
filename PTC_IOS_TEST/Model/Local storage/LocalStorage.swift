@@ -14,8 +14,8 @@ struct Keys {
 
 public struct LocalStorage{
     
-    static func saveCurrencySymbol(configurationsDataResult : ConfigurationsDataResult){
-        UserDefaults.standard.set(configurationsDataResult.currency?.currencySymbol, forKey: Keys.currencySymbol)
+    static func saveCurrencySymbol(currency : Currency?){
+        UserDefaults.standard.set(currency?.currencySymbol, forKey: Keys.currencySymbol)
     }
     
     static func getCurrencySymbol()->String{return checkIfEmptyorNil(check: UserDefaults.standard.string(forKey: Keys.currencySymbol))}

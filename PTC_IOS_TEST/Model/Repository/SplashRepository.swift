@@ -17,6 +17,7 @@ class SplashRepository: BaseRepository{
         let observable: BehaviorSubject<DataResult<ConfigurationsDataResult>> = createObservable()
         NetworkManger.configurationsRequest() { (dataResult: DataResult<ConfigurationsDataResult>) in
             if self.isSuccess(baseDataResultObservable: observable, dataResult: dataResult){
+                LocalStorage.saveCurrencySymbol(currency: dataResult.data?.currency)
                 self.onSuccess(baseDataResultObservable: observable, data: dataResult.data!)
             }else{
                 self.onError(baseDataResultObservable: observable, errorDataResult: dataResult)
