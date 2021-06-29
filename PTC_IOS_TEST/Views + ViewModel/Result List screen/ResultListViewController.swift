@@ -30,8 +30,8 @@ class ResultListViewController: BaseViewController {
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
             comingSearchedData = item
             searchBarTextField.text = item
-            self.fetchProductData(query: item)
-            
+            searchPageNumber = 1
+            productData.removeAll()
         }
         searchBarTextField.delegate = self
     }
@@ -109,9 +109,11 @@ extension ResultListViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == productData.count - 1 && searchPageNumber <= 2{
+        if indexPath.row == productData.count - 1{
             searchPageNumber += 1
-            fetchProductData(query: "phone")
+            if searchPageNumber <= 2{
+            fetchProductData(query: comingSearchedData)
+            }
         }
     }
     
@@ -143,7 +145,10 @@ extension ResultListViewController: UITextFieldDelegate{
             if !searchedData.contains(text) {
                 searchedData.append(text)
                 viewModel.saveSearch(search: searchedData)
+                searchPageNumber = 1
             }
+            comingSearchedData = text
+            productData.removeAll()
             self.fetchProductData(query: text)
         }else{
             back()
