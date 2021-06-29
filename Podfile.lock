@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
+  - DropDown (2.3.13)
   - ObjectMapper (3.5.3)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
@@ -14,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - DropDown
   - ObjectMapper (~> 3.4)
   - RxCocoa
   - RxSwift
@@ -23,6 +25,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropDown
     - ObjectMapper
     - RxCocoa
     - RxRelay
@@ -32,6 +35,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
 
-PODFILE CHECKSUM: c4b9e342d73c81a219ad162292b694a7963f86fa
+PODFILE CHECKSUM: d1da436563cdbce95247a0c5b6a7502f944615fb
 
 COCOAPODS: 1.10.1

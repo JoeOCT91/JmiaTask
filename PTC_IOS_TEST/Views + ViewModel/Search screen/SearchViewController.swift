@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import DropDown
 
 class SearchViewController: BaseViewController {
     
@@ -18,7 +19,9 @@ class SearchViewController: BaseViewController {
     
     let viewModel = SearchViewModel()
     
+    var dropButton = DropDown()
     var productData = [Results]()
+    var searchedData = [String]()
     var searchPageNumber = 1
     
     override func viewDidLoad() {
@@ -31,6 +34,7 @@ class SearchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupSearchBarUI()
         setupSearchBackgroundView()
+        setuoDropDownList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,6 +45,8 @@ class SearchViewController: BaseViewController {
         searchBarTextField.tintColor = AppColors.blackColor
         searchBarTextField.textColor = AppColors.blackColor
         searchBarTextField.backgroundColor = AppColors.jumiaOrangeColor
+        searchBarTextField.returnKeyType = .search
+        searchBarTextField.delegate = self
         searchBarTextField.attributedPlaceholder = NSAttributedString(string: "Search for products",
                                                                       attributes: [NSAttributedString.Key.foregroundColor: AppColors.blackColor])
         searchBarTextField.setLeftView(image: #imageLiteral(resourceName: "search"))
@@ -51,6 +57,18 @@ class SearchViewController: BaseViewController {
         searchBarView.layer.cornerRadius = 10
         searchBarView.clipsToBounds = true
         searchBarView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+    }
+    
+    func setuoDropDownList(){
+        dropButton.anchorView = searchBarTextField
+        dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
+        dropButton.textColor = AppColors.blackColor
+        dropButton.backgroundColor = AppColors.jumiaOrangeColor
+        dropButton.direction = .bottom
+        DropDown.startListeningToKeyboard()
+        dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)") 
+        }
     }
     
     
@@ -71,18 +89,10 @@ class SearchViewController: BaseViewController {
     
     func handelSuccess(){
         self.stopLoadingIndicator()
-        //        self.navigate(navigateKey: NavigationKeys.TAB_BAR_SCREEN)
     }
     
     func handelFailure(dataResult: DataResult<SearchDataResult>){
         self.stopLoadingIndicator()
-        //        switch dataResult.errorType {
-        //        case .SERVER_ERROR:
-        //            let alertt = self.alertService.successAndFailureAlert(alertStatus: false, alertMessage: "تأكد من رقم الساب و كلمة المرور ", alertButtonTitle: "رجــوع"){}
-        //            self.present(alertt,animated: true)
-        //        default:
-        //            self.handleError(errorResult: dataResult)
-        //        }
     }
 }
 
@@ -105,5 +115,27 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
+    
 }
 
+//textfield delegation methods
+extension SearchViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchBarTextField.resignFirstResponder()
+        if let text = searchBarTextField.text , !text.isEmpty{
+            searchedData.append(text)
+        }else{
+            resultProductCollectionView.isHidden = false
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        dropButton.dataSource = searchedData
+        dropButton.show()
+        resultProductCollectionView.isHidden = true
+    }
+    
+    
+}
