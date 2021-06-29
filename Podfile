@@ -12,5 +12,6 @@ target 'PTC_IOS_TEST' do
   pod 'RxCocoa'
   pod 'Shimmer'
   pod 'SDWebImage'
-
+  pod 'DropDown'
+  
 end

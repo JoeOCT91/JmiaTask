@@ -16,7 +16,7 @@ class SplashViewController: BaseViewController {
         super.viewDidLoad()
         viewModel.isLoggedIn().subscribe (onNext: { (configurationsDataResult) in
             if configurationsDataResult.status == .success{
-                //success perform segue 
+                self.navigateController(navigateKey: NavigationKeys.SEARCH_SCREEN)
             }else{
                 //show internet connection error
             }
