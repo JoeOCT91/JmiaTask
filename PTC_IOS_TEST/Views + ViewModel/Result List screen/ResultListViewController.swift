@@ -27,8 +27,9 @@ class ResultListViewController: BaseViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         setupNavigationBarUI(isHomePage: true)
-        fetchProductData(query: comingSearchedData)
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
+            comingSearchedData = item
+            searchBarTextField.text = item
             self.fetchProductData(query: item)
             
         }
@@ -36,7 +37,9 @@ class ResultListViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        fetchProductData(query: comingSearchedData)
         navigationItem.hidesBackButton = true
+        tableView.isHidden = true
         searchedData = viewModel.getSearchStrings()
         searchBarTextField.text = comingSearchedData
         searchBarTextField.setupSearchBarUI()
@@ -48,8 +51,7 @@ class ResultListViewController: BaseViewController {
         viewModel.search(query: query, pageNumber: searchPageNumber).subscribe (onNext: { (dataResult) in
             switch(dataResult.status){
             case .success:
-                self.handelSuccess()
-                self.productData.append(contentsOf: dataResult.data?.results ?? [])
+                self.productData.append(contentsOf: self.handelSuccess(productData: dataResult.data?.results))
                 self.tableView.reloadData()
             case .error:
                 self.handelFailure(dataResult: dataResult)
@@ -59,12 +61,38 @@ class ResultListViewController: BaseViewController {
         }).disposed(by: baseDisposeBag)
     }
     
-    func handelSuccess(){
+    func handelSuccess(productData : [Results]?) -> [Results]{
+        tableView.isHidden = false
         self.stopLoadingIndicator()
+        guard let dataResult = productData, !dataResult.isEmpty else {
+            tableView.isHidden = true
+            self.noSearchResult()
+            return  []
+        }
+        self.CustomViewForNoDataUIView(labelText: "", imageIcone: #imageLiteral(resourceName: "empty_search"))
+        return  dataResult
     }
     
     func handelFailure(dataResult: DataResult<SearchDataResult>){
         self.stopLoadingIndicator()
+            tableView.isHidden = true
+            switch dataResult.errorType {
+            case .CONNECTION_ERROR:
+                noSearchResult()
+            case .SERVER_ERROR:
+                noInternetConnection()
+            case .none:
+                stopLoadingIndicator()
+            }
+    }
+    
+    
+    func noSearchResult(){
+        self.CustomViewForNoDataUIView(labelText: "No search results for that search", imageIcone: #imageLiteral(resourceName: "empty_search").withTintColor(AppColors.jumiaOrangeColor))
+    }
+    
+    func noInternetConnection(){
+        self.CustomViewForNoDataUIView(labelText: "No internet connection", imageIcone: #imageLiteral(resourceName: "clear"))
     }
     
 }

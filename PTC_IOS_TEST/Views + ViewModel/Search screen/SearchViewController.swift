@@ -31,7 +31,6 @@ class SearchViewController: BaseViewController {
         setupNavigationBarUI(isHomePage: true)
         fetchProductData(query: "phone")
         searchBarTextField.delegate = self
-        
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
             searchedDataLast = item
             performSegue(withIdentifier: "goToResultListViewController" , sender: self)
@@ -116,7 +115,6 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
 extension SearchViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchBarTextField.resignFirstResponder()
         if let text = searchBarTextField.text , !text.isEmpty{
             if !searchedData.contains(text) {
                 searchedData.append(text)
@@ -132,6 +130,7 @@ extension SearchViewController: UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        searchBarTextField.resignFirstResponder()
         dropButton.dataSource = viewModel.getSearchStrings()
         dropButton.show()
         resultProductCollectionView.isHidden = true

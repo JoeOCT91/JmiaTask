@@ -21,7 +21,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-go-V6G">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-ay-aJY">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ls-ay-aJY" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="985"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Dl-Nt-m2a">
@@ -205,6 +205,7 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="collectionView" destination="3Dl-Nt-m2a" id="0e3-MV-xS3"/>
+                        <outlet property="contentView" destination="9Ls-ay-aJY" id="BXO-ym-Uj2"/>
                         <outlet property="pageControl" destination="9lK-b8-bkE" id="gTN-Ch-g0q"/>
                         <outlet property="prodectDiscount" destination="XUB-8t-2UM" id="6DU-mg-Vog"/>
                         <outlet property="productBrand" destination="07K-gF-UZF" id="qmY-CY-LZA"/>

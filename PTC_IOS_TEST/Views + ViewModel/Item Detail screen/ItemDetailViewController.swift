@@ -22,6 +22,7 @@ class ItemDetailViewController: BaseViewController {
     @IBOutlet weak var productDiscountBackground: UIView!
     @IBOutlet weak var productRating: UIView!
     @IBOutlet weak var productDescription: UITextView!
+    @IBOutlet weak var contentView: UIView!
     
     var productData : Results?
     var productDetails : ProductDataResult?
@@ -80,6 +81,16 @@ class ItemDetailViewController: BaseViewController {
     
     func handelFailure(dataResult: DataResult<ProductDataResult>){
         self.stopLoadingIndicator()
+        contentView.isHidden = true
+        switch dataResult.errorType {
+        case .CONNECTION_ERROR:
+            self.CustomViewForNoDataUIView(labelText: "No search results for that search", imageIcone: #imageLiteral(resourceName: "empty_search").withTintColor(AppColors.jumiaOrangeColor))
+        case .SERVER_ERROR:
+            self.CustomViewForNoDataUIView(labelText: "No internet connection", imageIcone: #imageLiteral(resourceName: "clear"))
+        case .none:
+        stopLoadingIndicator()
+        }
+        
     }
     
 }
