@@ -19,9 +19,10 @@ class ResultListViewController: BaseViewController {
     var comingSearchedData = String()
     var searchedData = [String]()
     var searchPageNumber = 1
+    var selectedIndex = 0
     
     let viewModel = ResultListViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
@@ -84,10 +85,21 @@ extension ResultListViewController : UITableViewDelegate, UITableViewDataSource{
             searchPageNumber += 1
             fetchProductData(query: "phone")
         }
-        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 203
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "goToItemDetailScreen" , sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let itemDetailViewController = segue.destination as? ItemDetailViewController {
+            itemDetailViewController.productData = productData[selectedIndex]
+        }
     }
     
     

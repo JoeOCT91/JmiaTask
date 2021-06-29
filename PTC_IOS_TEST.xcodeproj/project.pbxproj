@@ -33,6 +33,9 @@
 		686D106826850582005428A3 /* ProductDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D106726850582005428A3 /* ProductDataResult.swift */; };
 		686D106A26850641005428A3 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D106926850641005428A3 /* ProductRepository.swift */; };
 		687230E3268B86520090998B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687230E2268B86520090998B /* UILabel+Extension.swift */; };
+		687230E5268B8B6D0090998B /* ItemDetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687230E4268B8B6D0090998B /* ItemDetailScreen.storyboard */; };
+		687230E7268B8B860090998B /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687230E6268B8B860090998B /* ItemDetailViewModel.swift */; };
+		687230E9268B8BBD0090998B /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687230E8268B8BBD0090998B /* ItemDetailViewController.swift */; };
 		68964908268A1ACF00DC2CDB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68964907268A1ACF00DC2CDB /* SearchViewController.swift */; };
 		6896490C268A1B7500DC2CDB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896490B268A1B7500DC2CDB /* SearchViewModel.swift */; };
 		68A1B88F268A1EE3002E2D58 /* BaseViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A1B88E268A1EE3002E2D58 /* BaseViewController+NavigationBar.swift */; };
@@ -76,6 +79,9 @@
 		686D106726850582005428A3 /* ProductDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataResult.swift; sourceTree = "<group>"; };
 		686D106926850641005428A3 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		687230E2268B86520090998B /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		687230E4268B8B6D0090998B /* ItemDetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemDetailScreen.storyboard; sourceTree = "<group>"; };
+		687230E6268B8B860090998B /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
+		687230E8268B8BBD0090998B /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		68964907268A1ACF00DC2CDB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		6896490B268A1B7500DC2CDB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		68A1B88E268A1EE3002E2D58 /* BaseViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 				682089C12684CA90005E2198 /* Splash screen */,
 				68964904268A199400DC2CDB /* Search screen */,
 				6831BF33268B539400F38B7A /* Result List screen */,
+				687230EA268B8C170090998B /* Item Detail screen */,
 			);
 			path = "Views + ViewModel";
 			sourceTree = "<group>";
@@ -252,6 +259,16 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		687230EA268B8C170090998B /* Item Detail screen */ = {
+			isa = PBXGroup;
+			children = (
+				687230E4268B8B6D0090998B /* ItemDetailScreen.storyboard */,
+				687230E8268B8BBD0090998B /* ItemDetailViewController.swift */,
+				687230E6268B8B860090998B /* ItemDetailViewModel.swift */,
+			);
+			path = "Item Detail screen";
+			sourceTree = "<group>";
+		};
 		68964904268A199400DC2CDB /* Search screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				687230E5268B8B6D0090998B /* ItemDetailScreen.storyboard in Resources */,
 				6831BF2D268B535D00F38B7A /* ResultList.storyboard in Resources */,
 				68EC974C268A402C007CA514 /* SearchScreen.storyboard in Resources */,
 				6830A5A422C51C9E00C62108 /* LaunchScreen.storyboard in Resources */,
@@ -408,6 +426,7 @@
 				68964908268A1ACF00DC2CDB /* SearchViewController.swift in Sources */,
 				68EC974E268A44C2007CA514 /* BagdeBarItemButton.swift in Sources */,
 				68EC975E268A61F5007CA514 /* AppColors.swift in Sources */,
+				687230E7268B8B860090998B /* ItemDetailViewModel.swift in Sources */,
 				685FFE372687920400189088 /* SplashViewModel.swift in Sources */,
 				686D106626850485005428A3 /* SearchDataResult.swift in Sources */,
 				6896490C268A1B7500DC2CDB /* SearchViewModel.swift in Sources */,
@@ -424,6 +443,7 @@
 				686D106226850164005428A3 /* ConfigurationsDataResult.swift in Sources */,
 				686D106826850582005428A3 /* ProductDataResult.swift in Sources */,
 				6831BF2F268B537500F38B7A /* ResultListViewController.swift in Sources */,
+				687230E9268B8BBD0090998B /* ItemDetailViewController.swift in Sources */,
 				686D1064268503F3005428A3 /* SearchRepository.swift in Sources */,
 				685FFE3B268794E700189088 /* LocalStorage.swift in Sources */,
 				682A2AD1268AB88A009FBBD6 /* UITextField+Extension.swift in Sources */,

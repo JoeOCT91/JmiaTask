@@ -23,6 +23,7 @@ class SearchViewController: BaseViewController {
     var searchedData = [String]()
     var searchedDataLast = String()
     var searchPageNumber = 1
+    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,8 @@ class SearchViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultListViewController = segue.destination as? ResultListViewController {
             resultListViewController.comingSearchedData = searchedDataLast
+        }else if let itemDetailViewController = segue.destination as? ItemDetailViewController {
+            itemDetailViewController.productData = productData[selectedIndex]
         }
     }
     
@@ -99,6 +102,11 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             searchPageNumber += 1
             fetchProductData(query: "phone")
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "goToItemDetailScreen" , sender: self)
     }
     
     
