@@ -19,10 +19,16 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        
-        let main = SearchViewController()
+        let main = SplashViewController()
         main.coordinator = self
         pushViewControllerToStack(with: main)
+   
+    }
+    
+    func showSearch(){
+        let search = SearchViewController()
+        search.coordinator = self
+        pushViewControllerToStack(with: search , isRoot: true)
     }
     
     func showProducts(){
@@ -40,8 +46,13 @@ class MainCoordinator: Coordinator {
         pushViewControllerToStack(with: details)
     }
     
-    func pushViewControllerToStack(with value : UIViewController , animated : Bool = true){
+    func pushViewControllerToStack(with value : UIViewController , animated : Bool = true , isRoot : Bool = false){
+        
+        if  isRoot {
+            navigationController.viewControllers = []
+        }
         navigationController.pushViewController(value, animated: animated)
+       
     }
     
 }

@@ -51,6 +51,11 @@ class SearchViewController: ParentViewController {
         configureUIBinding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     func configureUI(){
         view.backgroundColor = .white
         navigationItem.title = "Search"

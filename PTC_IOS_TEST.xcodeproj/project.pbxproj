@@ -13,6 +13,7 @@
 		0340B636278A4881005DFF07 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340B635278A4881005DFF07 /* ProductDetails.swift */; };
 		0340B638278A48F3005DFF07 /* ProductDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340B637278A48F3005DFF07 /* ProductDetailsResponse.swift */; };
 		0340B63B278A4EE6005DFF07 /* ProductDetailsViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340B63A278A4EE6005DFF07 /* ProductDetailsViewData.swift */; };
+		0340C4E5278E3766001AD363 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340C4E4278E3766001AD363 /* SplashViewController.swift */; };
 		035EFE7F27862D6100A4A9D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EFE7E27862D6100A4A9D8 /* Coordinator.swift */; };
 		035EFE8127862D8E00A4A9D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EFE8027862D8E00A4A9D8 /* MainCoordinator.swift */; };
 		035EFE8327862F0600A4A9D8 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EFE8227862F0600A4A9D8 /* ProductListViewController.swift */; };
@@ -62,6 +63,7 @@
 		0340B635278A4881005DFF07 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		0340B637278A48F3005DFF07 /* ProductDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsResponse.swift; sourceTree = "<group>"; };
 		0340B63A278A4EE6005DFF07 /* ProductDetailsViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewData.swift; sourceTree = "<group>"; };
+		0340C4E4278E3766001AD363 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		035EFE7E27862D6100A4A9D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		035EFE8027862D8E00A4A9D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		035EFE8227862F0600A4A9D8 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0340C4E3278E351E001AD363 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6830A5A222C51C9E00C62108 /* LaunchScreen.storyboard */,
+				0340C4E4278E3766001AD363 /* SplashViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		035EFE742786144500A4A9D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +182,6 @@
 				035EFE79278622C800A4A9D8 /* Saerch */,
 				035EFE772786225400A4A9D8 /* ProductList */,
 				035EFE78278622B800A4A9D8 /* ProductDetails */,
-				6830A5A222C51C9E00C62108 /* LaunchScreen.storyboard */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -230,6 +240,7 @@
 		035EFE7A278622D300A4A9D8 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				0340C4E3278E351E001AD363 /* View */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -364,8 +375,8 @@
 			isa = PBXGroup;
 			children = (
 				03B65411278DFE7B00C08D83 /* IndicatorAlert.swift */,
-				03B65416278E09AC00C08D83 /* InfoAlert.swift */,
 				03B65414278E08DC00C08D83 /* BaseAlert.swift */,
+				03B65416278E09AC00C08D83 /* InfoAlert.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -549,6 +560,7 @@
 				038C109C2788EA9A009541A6 /* Reactive.swift in Sources */,
 				038D148327888181000293C0 /* EndPoint.swift in Sources */,
 				03764DCB278CD29F0087298F /* SearchViewController.swift in Sources */,
+				0340C4E5278E3766001AD363 /* SplashViewController.swift in Sources */,
 				03B6541C278E30F500C08D83 /* String.swift in Sources */,
 				038D148127887C20000293C0 /* APIManagerProtocol.swift in Sources */,
 				038C109A2788CCFF009541A6 /* ProductViewData.swift in Sources */,
