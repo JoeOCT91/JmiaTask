@@ -52,7 +52,7 @@ extension UICollectionView {
     func setupLoadingIndicator(){
         let indicator = UIActivityIndicatorView()
         indicator.style = .whiteLarge
-        indicator.color = .red
+        indicator.color = .orange
         indicator.hidesWhenStopped = true
         backgroundView = indicator
     }

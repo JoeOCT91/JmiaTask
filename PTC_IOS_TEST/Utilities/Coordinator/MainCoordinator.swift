@@ -19,6 +19,13 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
+        
+        let main = SearchViewController()
+        main.coordinator = self
+        pushViewControllerToStack(with: main)
+    }
+    
+    func showProducts(){
         let main = ProductListViewController()
         main.coordinator = self
         pushViewControllerToStack(with: main)
