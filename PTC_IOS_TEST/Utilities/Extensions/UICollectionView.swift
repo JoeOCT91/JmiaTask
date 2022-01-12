@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 extension UICollectionView {
-    func setMessage(_ message : String , icon : String = icons.sysProblem.rawValue){
+    func setMessage(_ message : String , icon : String = icons.sysWifiProblem.rawValue){
         
         let view = UIView()
         self.backgroundView = view
@@ -27,7 +27,7 @@ extension UICollectionView {
         if #available(iOS 13.0, *) {
             imgView.image = UIImage(systemName: icon)!
         } else {
-            imgView.image = UIImage(named: icons.problem.rawValue)!
+            imgView.image = UIImage(named: icons.wifiProblem.rawValue)!
         }
         imgView.tintColor = .lightGray
         imgView.contentMode = .scaleAspectFit
@@ -46,8 +46,6 @@ extension UICollectionView {
             maker.top.equalTo(imgView.snp.bottom).offset(10)
         }
     }
-    
-    
     
     func setupLoadingIndicator(){
         let indicator = UIActivityIndicatorView()

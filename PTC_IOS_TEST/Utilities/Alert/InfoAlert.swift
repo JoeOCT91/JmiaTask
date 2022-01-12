@@ -28,13 +28,12 @@ class InfoAlert : BaseAlert {
          lab.numberOfLines = 3
          lab.textColor = .white
          lab.setContentHuggingPriority(.defaultLow, for: .vertical)
-         return lab
-         
+         return lab 
      }()
     
     var iconImageView : UIImageView = {
          let img = UIImageView()
-         img.image = UIImage(named: "info_circle")
+        img.image = UIImage(named: icons.infoAlert.rawValue)
          return img
     }()
     

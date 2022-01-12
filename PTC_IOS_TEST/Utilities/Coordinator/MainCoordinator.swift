@@ -25,6 +25,10 @@ class MainCoordinator: Coordinator {
    
     }
     
+    func back(){
+        navigationController.popViewController(animated: true)
+    }
+    
     func showSearch(){
         let search = SearchViewController()
         search.coordinator = self

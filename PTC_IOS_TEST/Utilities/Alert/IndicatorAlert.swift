@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 class IndicatorAlert : BaseAlert {
     
-    var activityInidicatorView :  UIActivityIndicatorView = {
-        let item = UIActivityIndicatorView()
-        item.hidesWhenStopped = true
-        item.color = UIColor.white
+    
+    var activityInidicatorView :  MDCActivityIndicator = {
+        let item = MDCActivityIndicator()
+        item.tintColor = .white
+        item.radius = 20
+        item.cycleColors = [.white]
         return item
     }()
     
@@ -30,7 +33,6 @@ class IndicatorAlert : BaseAlert {
         configureContainerView()
         containerView.addSubview(activityInidicatorView)
         configureUIConstrains()
-        activityInidicatorView.transform = CGAffineTransform(scaleX: 2, y: 2)
     }
     
     func configureUIConstrains(){

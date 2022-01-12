@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 class SplashViewController: UIViewController {
     
-    var inidicatorView :  UIActivityIndicatorView = {
-        let item = UIActivityIndicatorView()
-        item.hidesWhenStopped = true
-        item.color = .mainColor
+    var inidicatorView :  MDCActivityIndicator = {
+        let item = MDCActivityIndicator()
+        item.tintColor = .mainColor
+        item.radius = 20
+        item.cycleColors = [.mainColor]
         return item
     }()
     
@@ -40,8 +42,9 @@ class SplashViewController: UIViewController {
     func congifureUI(){
         view.backgroundColor = UIColor.white
         view.addSubviews(contentOf: [logoImageView , inidicatorView])
-        inidicatorView.transform = CGAffineTransform(scaleX: 2, y: 2)
         congifureUIConstrains()
+        //inidicatorView.transform = CGAffineTransform(scaleX: 2, y: 2)
+
      
     }
     

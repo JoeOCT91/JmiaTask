@@ -47,8 +47,7 @@ extension ProductListViewController {
     }
     
     func bindingLoadingError(){
-        /* In order to test it you should toggle the line 35 in searchProducts >>
-         ProductSearchService instead of producing new elements */
+        /* In order to test it you should toggle your internet connection */
         viewModel.outputs.onError
         .observe(on: MainScheduler.asyncInstance)
         .subscribe(onNext : {[weak self] event in

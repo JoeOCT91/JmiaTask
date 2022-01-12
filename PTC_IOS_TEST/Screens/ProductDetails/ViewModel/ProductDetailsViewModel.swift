@@ -12,7 +12,7 @@ class ProductDetailsViewModel: ProductDetailsViewModelProtocol , ProductDetailsV
     var productDetails: PublishSubject<ProductDetailsViewData>
     var productImages : BehaviorSubject<[String]>
     var isLoading: BehaviorSubject<Bool>
-    var onError: BehaviorSubject<String>
+    var onError: PublishSubject<String>
     var selectedImage: PublishSubject<String>
     var outputs: ProductDetailsViewModelOutput {return self}
     var inputs: ProductDetailsViewModelInput {return self}
@@ -24,13 +24,13 @@ class ProductDetailsViewModel: ProductDetailsViewModelProtocol , ProductDetailsV
         productDetails = PublishSubject<ProductDetailsViewData>()
         productImages = BehaviorSubject<[String]>(value: [])
         isLoading = BehaviorSubject<Bool>(value: false)
-        onError = BehaviorSubject<String>(value: "")
+        onError = PublishSubject<String>()
         selectedImage = PublishSubject<String>()
         apiService = ProductDetailsService()
     }
     
     func getProductDetails(){
-        let sku = (sku != 1 || sku != 2) ? Int.random(in: 1...2) : sku
+     //   let sku = (sku != 1 || sku != 2) ? Int.random(in: 1...2) : sku
         let result = apiService.fetchProductDetails(with: sku)
             .map{ meta in ProductDetailsViewData(with: meta)}
         

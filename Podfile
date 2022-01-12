@@ -11,5 +11,6 @@ target 'PTC_IOS_TEST' do
    pod 'Kingfisher', '~> 7.0'
    pod 'SnapKit', '~> 5.0.0'
    pod 'Cosmos', '~> 23.0'
+   pod 'MaterialComponents/ActivityIndicator'
 
 end

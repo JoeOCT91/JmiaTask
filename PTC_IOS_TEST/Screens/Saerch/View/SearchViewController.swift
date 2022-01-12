@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 class SearchViewController: ParentViewController {
     //MARK: UI Components
     lazy var mainStack  : UIStackView =  {

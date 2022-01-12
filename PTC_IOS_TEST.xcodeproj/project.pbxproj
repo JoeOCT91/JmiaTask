@@ -48,6 +48,7 @@
 		03C5FE21278B77C10012E6D0 /* ProductDetailsViewController+BindingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5FE20278B77C10012E6D0 /* ProductDetailsViewController+BindingModel.swift */; };
 		03C5FE23278B7D030012E6D0 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5FE22278B7D030012E6D0 /* Double.swift */; };
 		03CA32FF278B491B004C65A1 /* ProductImageItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA32FE278B491B004C65A1 /* ProductImageItemCell.swift */; };
+		03E9E3AC278ED92400DAA903 /* NoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E9E3AB278ED92400DAA903 /* NoDetailsView.swift */; };
 		03FA4D5F278A2F4600CE41B8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FA4D5E278A2F4600CE41B8 /* UIViewController.swift */; };
 		6830A59A22C51C9D00C62108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6830A59922C51C9D00C62108 /* AppDelegate.swift */; };
 		6830A59C22C51C9D00C62108 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6830A59B22C51C9D00C62108 /* ParentViewController.swift */; };
@@ -98,6 +99,7 @@
 		03C5FE20278B77C10012E6D0 /* ProductDetailsViewController+BindingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductDetailsViewController+BindingModel.swift"; sourceTree = "<group>"; };
 		03C5FE22278B7D030012E6D0 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		03CA32FE278B491B004C65A1 /* ProductImageItemCell.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = ProductImageItemCell.swift; sourceTree = "<group>"; };
+		03E9E3AB278ED92400DAA903 /* NoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDetailsView.swift; sourceTree = "<group>"; };
 		03FA4D5E278A2F4600CE41B8 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		6830A59622C51C9D00C62108 /* PTC_IOS_TEST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PTC_IOS_TEST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6830A59922C51C9D00C62108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		038C34D2278A0EE400CBD39B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03E9E3AD278ED93100DAA903 /* Custom */,
 				038C34D3278A0F2000CBD39B /* ProductDetails.storyboard */,
 				038C34D5278A0F4100CBD39B /* ProductDetailsViewController.swift */,
 				03C5FE20278B77C10012E6D0 /* ProductDetailsViewController+BindingModel.swift */,
@@ -379,6 +382,14 @@
 				03B65416278E09AC00C08D83 /* InfoAlert.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		03E9E3AD278ED93100DAA903 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				03E9E3AB278ED92400DAA903 /* NoDetailsView.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		454DA3BF398E9B6CB77CB54A /* Frameworks */ = {
@@ -542,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E9E3AC278ED92400DAA903 /* NoDetailsView.swift in Sources */,
 				038D148D27889A4E000293C0 /* SearchMetaData.swift in Sources */,
 				0340B636278A4881005DFF07 /* ProductDetails.swift in Sources */,
 				03764DD1278CDDA60087298F /* SearchViewModelProtocol.swift in Sources */,

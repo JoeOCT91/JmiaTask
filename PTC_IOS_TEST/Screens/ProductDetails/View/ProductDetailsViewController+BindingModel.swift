@@ -61,4 +61,14 @@ extension ProductDetailsViewController {
       .disposed(by: disposeBag)
    }
     
+    func bindingFetchingError(){
+        viewModel.outputs.onError
+        .observe(on: MainScheduler.instance)
+        .subscribe(onNext : {[weak self] item in
+            guard let self = self  else { return }
+            let msg = "The product 'Not Found' in database \n Please try again later"
+            self.showNoDetailsView(message : msg)
+        }).disposed(by: disposeBag)
+    }
+    
 }

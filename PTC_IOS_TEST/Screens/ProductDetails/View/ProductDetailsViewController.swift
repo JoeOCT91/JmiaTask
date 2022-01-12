@@ -56,11 +56,22 @@ class ProductDetailsViewController: UIViewController {
       bindingSelectedImageToCurrentImageView()
       selectFirstItemOfImageCollection()
       bindingSelecteImageCollection()
+      bindingFetchingError()
    }
     
     func registerCollectionCells(){
         imageCollection.register(ProductImageItemCell.self, forCellWithReuseIdentifier: Cells.ProductImageItemCell.rawValue)
     }
+   
+   func showNoDetailsView(message : String){
+      
+      let noDetailsView = NoDetailsView()
+      noDetailsView.message = message
+      noDetailsView.acceptButtonAction = { [weak self] in
+            self?.coordinator?.back()
+      }
+      view.addSubview(noDetailsView)
+   }
     
 }
 

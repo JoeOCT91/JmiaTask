@@ -12,7 +12,7 @@ protocol  ProductDetailsViewModelOutput {
     var productDetails : PublishSubject<ProductDetailsViewData> {get}
     var productImages : BehaviorSubject<[String]> {get}
     var isLoading : BehaviorSubject<Bool> {get}
-    var onError : BehaviorSubject<String> {get}
+    var onError : PublishSubject<String> {get}
 }
 
 protocol ProductDetailsViewModelInput {

@@ -20,6 +20,8 @@ enum identifiers : String {
 }
 
 enum icons  : String {
-    case sysProblem = "exclamationmark.icloud.fill"
-    case problem = "problem"
+    case sysWifiProblem = "exclamationmark.icloud.fill"
+    case wifiProblem = "wifi_problem"
+    case noDetailsFound = "no_details_found"
+    case infoAlert = "info_circle"
 }
