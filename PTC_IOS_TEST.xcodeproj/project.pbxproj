@@ -14,6 +14,7 @@
 		6830A5A122C51C9E00C62108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6830A5A022C51C9E00C62108 /* Assets.xcassets */; };
 		6830A5A422C51C9E00C62108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6830A5A222C51C9E00C62108 /* LaunchScreen.storyboard */; };
 		8652D693278F4865003BB2FE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8652D692278F4865003BB2FE /* Podfile */; };
+		8652D6A6278F4B75003BB2FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8652D6A5278F4B75003BB2FE /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		6830A5A322C51C9E00C62108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6830A5A522C51C9E00C62108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8652D692278F4865003BB2FE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		8652D6A4278F4B16003BB2FE /* Colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
+		8652D6A5278F4B75003BB2FE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BA046DC87C5C507927E7C7EC /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 		CFF635F739EBE134E0A65360 /* Pods-PTC_IOS_TEST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.debug.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +178,7 @@
 		8652D69F278F4A03003BB2FE /* Strings */ = {
 			isa = PBXGroup;
 			children = (
+				8652D6A5278F4B75003BB2FE /* Localizable.strings */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -191,6 +195,7 @@
 		8652D6A1278F4A29003BB2FE /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				8652D6A4278F4B16003BB2FE /* Colors.txt */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			buildConfigurationList = 6830A5A822C51C9E00C62108 /* Build configuration list for PBXNativeTarget "PTC_IOS_TEST" */;
 			buildPhases = (
 				EA6F85EA38AA5631D60CCAA3 /* [CP] Check Pods Manifest.lock */,
+				8652D6A3278F4A9B003BB2FE /* Swift Gen */,
 				6830A59222C51C9D00C62108 /* Sources */,
 				6830A59322C51C9D00C62108 /* Frameworks */,
 				6830A59422C51C9D00C62108 /* Resources */,
@@ -240,7 +246,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = Jumia;
 				TargetAttributes = {
 					6830A59522C51C9D00C62108 = {
@@ -271,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8652D6A6278F4B75003BB2FE /* Localizable.strings in Resources */,
 				6830A5A422C51C9E00C62108 /* LaunchScreen.storyboard in Resources */,
 				6830A5A122C51C9E00C62108 /* Assets.xcassets in Resources */,
 				8652D693278F4865003BB2FE /* Podfile in Resources */,
@@ -297,6 +304,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8652D6A3278F4A9B003BB2FE /* Swift Gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 		EA6F85EA38AA5631D60CCAA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -380,6 +405,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -441,6 +467,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

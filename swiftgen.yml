@@ -1,0 +1,17 @@
+xcassets:
+  inputs: ptc_ios_test/Resources/Assets/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: ptc_ios_test/Resources/Assets/AssetsManager.swift
+
+strings:
+  inputs: ptc_ios_test/Resources/Strings/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: ptc_ios_test/Resources/Strings/Strings.swift
+
+colors:
+  inputs: ptc_ios_test/Resources/Colors/Colors.txt
+  outputs:
+    templateName: swift5
+    output: ptc_ios_test/Resources/Colors/ColorsManager.swift
