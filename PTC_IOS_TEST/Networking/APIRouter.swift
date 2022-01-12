@@ -10,53 +10,61 @@ import Alamofire
 
 enum APIRouter: URLRequestConvertible {
     
+    case getConfiguration
+    
+    //Mark:- HTTP Methods
+    private var method: HTTPMethod {
+        switch self {
+        case .getConfiguration:
+            return .get
+        }
+    }
+    
     private var path: String {
         switch self {
+        case .getConfiguration:
+            return URLs.configurations
+        }
+    }
+    
+    //MARK:- Parameters
+    private var parameters: Parameters? {
+        switch self {
         default:
-            break
+            return nil
         }
     }
     
     func asURLRequest() throws -> URLRequest {
 
-        var urlComponents = URLComponents(string: URLs.base + path)!
+        let urlComponents = URLComponents(string: URLs.base + path)!
 //        if let queries = query {
 //            //urlComponents.queryItems = queries
 //        }
         let url =  try urlComponents.asURL()
         var urlRequest = URLRequest(url: url)
+
+        //Set request Method
+        urlRequest.httpMethod = method.rawValue
 //
-//        //Set request Method
-//        urlRequest.httpMethod = method.rawValue
-//
-//        //Append Http Headers to urlRequest
-//        setUrlHeaders(urlRequest: &urlRequest)
+        //Append Http Headers to urlRequest
+        setUrlHeaders(urlRequest: &urlRequest)
 //
 //        //Append Http Body to urlRequest
 //        setURLBody(urlRequest: &urlRequest)
 //
-//        // Encoding
-//        let encoding: ParameterEncoding = {
-//            switch method {
-//            case .get, .delete:
-//                return URLEncoding.default
-//            default:
-//                return JSONEncoding.default
-//            }
-//        }()
-//        print("URL Request information #######")
-//        //print("\(urlRequest.httpMethod ?? "") \(String(describing: urlRequest.url))")
-//        print(try encoding.encode(urlRequest, with: parameters))
-//        let str = String(decoding: (urlRequest.httpBody ?? Data()), as: UTF8.self)
-//        print("BODY: \n \(str)")
-//        //print("HEADERS: \n \(String(describing: urlRequest.allHTTPHeaderFields))")
-//        return try encoding.encode(urlRequest, with: parameters)
-        return URLRequest(url: URL(fileURLWithPath: ""))
+        // Encoding
+        let encoding: ParameterEncoding = {
+            switch method {
+            case .get, .delete:
+                return URLEncoding.default
+            default:
+                return JSONEncoding.default
+            }
+        }()
+
+        return try encoding.encode(urlRequest, with: parameters)
     }
-    
-    
-    
-    
 }
 
 extension APIRouter {

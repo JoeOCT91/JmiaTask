@@ -10,7 +10,8 @@ import Foundation
 
 //MARK:- Api Urls end points
 struct URLs {
-    static let base = ""
+    static let base = "http://nd7d1.mocklab.io/"
+    static let configurations = "configurations/"
 }
 
 //MARK:- Header Keys

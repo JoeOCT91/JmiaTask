@@ -19,6 +19,14 @@
 		8652D6AA278F4D9D003BB2FE /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6A9278F4D9D003BB2FE /* APIRouter.swift */; };
 		8652D6AC278F4E40003BB2FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6AB278F4E40003BB2FE /* Constants.swift */; };
 		8652D6B0278F4F20003BB2FE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8652D6AF278F4F20003BB2FE /* README.md */; };
+		8652D6B3278F5124003BB2FE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B2278F5124003BB2FE /* SplashScreen.swift */; };
+		8652D6B5278F5169003BB2FE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B4278F5169003BB2FE /* AppCoordinator.swift */; };
+		8652D6B7278F53FE003BB2FE /* SplashScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B6278F53FE003BB2FE /* SplashScreenVM.swift */; };
+		8652D6B9278F59BA003BB2FE /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B8278F59BA003BB2FE /* MetaData.swift */; };
+		8652D6BB278F59ED003BB2FE /* APIMainResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6BA278F59ED003BB2FE /* APIMainResponse .swift */; };
+		8652D6BD278F5A55003BB2FE /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6BC278F5A55003BB2FE /* Currency.swift */; };
+		8652D6C0278F8D47003BB2FE /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6BF278F8D47003BB2FE /* ResultVC.swift */; };
+		8652D6C2278F8D72003BB2FE /* ResultVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6C1278F8D72003BB2FE /* ResultVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +45,14 @@
 		8652D6A9278F4D9D003BB2FE /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		8652D6AB278F4E40003BB2FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8652D6AF278F4F20003BB2FE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8652D6B2278F5124003BB2FE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		8652D6B4278F5169003BB2FE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8652D6B6278F53FE003BB2FE /* SplashScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVM.swift; sourceTree = "<group>"; };
+		8652D6B8278F59BA003BB2FE /* MetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
+		8652D6BA278F59ED003BB2FE /* APIMainResponse .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIMainResponse .swift"; sourceTree = "<group>"; };
+		8652D6BC278F5A55003BB2FE /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		8652D6BF278F8D47003BB2FE /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		8652D6C1278F8D72003BB2FE /* ResultVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVM.swift; sourceTree = "<group>"; };
 		BA046DC87C5C507927E7C7EC /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 		CFF635F739EBE134E0A65360 /* Pods-PTC_IOS_TEST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.debug.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +126,8 @@
 		8652D695278F48CA003BB2FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8652D6BE278F8D2D003BB2FE /* ResultView */,
+				8652D6B1278F510E003BB2FE /* SplashScreen  */,
 				6830A59B22C51C9D00C62108 /* ViewController.swift */,
 			);
 			path = Views;
@@ -118,6 +136,8 @@
 		8652D696278F48EF003BB2FE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8652D6B6278F53FE003BB2FE /* SplashScreenVM.swift */,
+				8652D6C1278F8D72003BB2FE /* ResultVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -125,6 +145,9 @@
 		8652D697278F4903003BB2FE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8652D6BA278F59ED003BB2FE /* APIMainResponse .swift */,
+				8652D6B8278F59BA003BB2FE /* MetaData.swift */,
+				8652D6BC278F5A55003BB2FE /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +189,7 @@
 		8652D69C278F49C0003BB2FE /* Coordinators  */ = {
 			isa = PBXGroup;
 			children = (
+				8652D6B4278F5169003BB2FE /* AppCoordinator.swift */,
 			);
 			path = "Coordinators ";
 			sourceTree = "<group>";
@@ -217,6 +241,22 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8652D6B1278F510E003BB2FE /* SplashScreen  */ = {
+			isa = PBXGroup;
+			children = (
+				8652D6B2278F5124003BB2FE /* SplashScreen.swift */,
+			);
+			path = "SplashScreen ";
+			sourceTree = "<group>";
+		};
+		8652D6BE278F8D2D003BB2FE /* ResultView */ = {
+			isa = PBXGroup;
+			children = (
+				8652D6BF278F8D47003BB2FE /* ResultVC.swift */,
+			);
+			path = ResultView;
 			sourceTree = "<group>";
 		};
 		E6541321F36E6F62F4C35402 /* Pods */ = {
@@ -365,11 +405,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8652D6B3278F5124003BB2FE /* SplashScreen.swift in Sources */,
+				8652D6C0278F8D47003BB2FE /* ResultVC.swift in Sources */,
 				8652D6AC278F4E40003BB2FE /* Constants.swift in Sources */,
+				8652D6C2278F8D72003BB2FE /* ResultVM.swift in Sources */,
 				8652D6A8278F4D76003BB2FE /* APIManager.swift in Sources */,
+				8652D6BB278F59ED003BB2FE /* APIMainResponse .swift in Sources */,
 				8652D6AA278F4D9D003BB2FE /* APIRouter.swift in Sources */,
 				6830A59C22C51C9D00C62108 /* ViewController.swift in Sources */,
+				8652D6BD278F5A55003BB2FE /* Currency.swift in Sources */,
+				8652D6B9278F59BA003BB2FE /* MetaData.swift in Sources */,
+				8652D6B7278F53FE003BB2FE /* SplashScreenVM.swift in Sources */,
 				6830A59A22C51C9D00C62108 /* AppDelegate.swift in Sources */,
+				8652D6B5278F5169003BB2FE /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jumia.PTC-IOS-TEST";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -545,7 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jumia.PTC-IOS-TEST";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
