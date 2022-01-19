@@ -44,10 +44,11 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.resultView.collectionView.delegate = self
-        self.configureDataSource()
-        self.bindProductListToCollectionView()
         self.dataErrorObserving()
         self.dataLoadingObserving()
+        self.configureDataSource()
+        self.bindProductListToCollectionView()
+
     }
     
     class func createResult(searchFor: String, coordinator: HomeCoordinator) -> ResultViewController {
@@ -67,10 +68,11 @@ class ResultViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     
     private func configureDataSource() {
-        dataSource = DataSource(collectionView: resultView.collectionView) { collectionView, indexPath, product in
+        dataSource = DataSource(collectionView: resultView.collectionView) { [weak self]  collectionView, indexPath, product in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.TwoColumnProductCell,
                                                           for: indexPath) as! TwoColumnCollectionViewProductCell
             cell.populateCell(with: product)
+            guard let self = self else { return cell }
             self.viewModel.currentValueIndex.send(indexPath.row)
             return cell
         }
@@ -111,12 +113,15 @@ class ResultViewController: UIViewController {
     
     private func dataLoadingObserving() {
         viewModel.isLoadingDataPublisher
-            .sink {  state in
+            .sink { [weak self] state in
+                guard let self = self else { return }
                     switch state {
                     case true:
                         self.resultView.displayAnimatedActivityIndicatorView()
+                        self.resultView.collectionView.isHidden = state
                     case false:
                         self.resultView.hideAnimatedActivityIndicatorView()
+                        self.resultView.collectionView.isHidden = state
                     }
                 }
             .store(in: &subscription)

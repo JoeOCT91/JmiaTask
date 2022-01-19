@@ -37,8 +37,6 @@ class Layouts {
         flowLayout.minimumLineSpacing = minimumItemSpacing
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         flowLayout.scrollDirection = .horizontal
-
-        
         return flowLayout
     }
 

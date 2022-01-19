@@ -13,36 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var coordinator: AppCoordinator?
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        initialeseReachability()
         let window = UIWindow(frame: UIScreen.main.bounds)
         coordinator = AppCoordinator(window: window)
         coordinator?.start()
         return true
     }
     
-    private func initialeseReachability() {
-           do {
-               try NetworkStateManger.Shared = Reachability(hostname: "www.google.com")
-               
-           } catch {
-               switch error as? NetworkStateManger.Error {
-               case let .failedToCreateWith(hostname)?:
-                   print("Network error:\nFailed to create reachability object With host named:", hostname)
-               case let .failedToInitializeWith(address)?:
-                   print("Network error:\nFailed to initialize reachability object With address:", address)
-               case .failedToSetCallout?:
-                   print("Network error:\nFailed to set callout")
-               case .failedToSetDispatchQueue?:
-                   print("Network error:\nFailed to set DispatchQueue")
-               case .none:
-                   print(error)
-               }
-           }
-       }
-
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

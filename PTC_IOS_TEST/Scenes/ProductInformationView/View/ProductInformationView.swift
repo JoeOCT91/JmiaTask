@@ -15,18 +15,17 @@ class ProductInformationView: JumiaView {
     
     
     let contentTableView = UITableView()
-    // Slide show views ...
     let imageView = UIImageView(frame: .zero)
     var imagesCollection: UICollectionView!
 
-    let productImagesStack = UIStackView(frame: .zero)
-    let productNameLabel = JumiaLabel()
-    let brandLabel = JumiaLabel()
-    let priceLabel = JumiaLabel()
-    let priceBeforeLabel = JumiaLabel()
-    let shortDescriptionLabel = JumiaLabel()
-    let descriptionLabel = JumiaLabel()
-    let ratingView = CosmosView(frame: .zero)
+    private let productImagesStack = UIStackView(frame: .zero)
+    private let productNameLabel = JumiaLabel()
+    private let brandLabel = JumiaLabel()
+    private let priceLabel = JumiaLabel()
+    private let priceBeforeLabel = JumiaLabel()
+    private let shortDescriptionLabel = JumiaLabel()
+    private let descriptionLabel = JumiaLabel()
+    private let ratingView = CosmosView(frame: .zero)
     
     let padding: CGFloat = 12
     
