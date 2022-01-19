@@ -67,6 +67,8 @@
 		86890418279837F8002E8093 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86890416279837F8002E8093 /* Reachability.swift */; };
 		8689041B2798385F002E8093 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689041A2798385F002E8093 /* NotificationName.swift */; };
 		8689041D2798556D002E8093 /* JumiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689041C2798556D002E8093 /* JumiaView.swift */; };
+		8689042027988177002E8093 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689041F27988177002E8093 /* UIView+ActivityIndicator.swift */; };
+		8689042227988795002E8093 /* ErrosMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689042127988795002E8093 /* ErrosMessages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +135,8 @@
 		86890416279837F8002E8093 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8689041A2798385F002E8093 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		8689041C2798556D002E8093 /* JumiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumiaView.swift; sourceTree = "<group>"; };
+		8689041F27988177002E8093 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		8689042127988795002E8093 /* ErrosMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrosMessages.swift; sourceTree = "<group>"; };
 		BA046DC87C5C507927E7C7EC /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 		CFF635F739EBE134E0A65360 /* Pods-PTC_IOS_TEST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.debug.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +291,7 @@
 		8652D69A278F4960003BB2FE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8689041E27988169002E8093 /* UIView */,
 				8689041927983856002E8093 /* NotificationCenter+Name */,
 				8671678D27915DA60046E618 /* UINavigationController */,
 			);
@@ -298,6 +303,7 @@
 			children = (
 				8652D6AB278F4E40003BB2FE /* Constants.swift */,
 				867167982791995C0046E618 /* Layouts.swift */,
+				8689042127988795002E8093 /* ErrosMessages.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -523,6 +529,14 @@
 			path = "NotificationCenter+Name";
 			sourceTree = "<group>";
 		};
+		8689041E27988169002E8093 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				8689041F27988177002E8093 /* UIView+ActivityIndicator.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		E6541321F36E6F62F4C35402 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,12 +708,14 @@
 				862BAC702790778200A33BA9 /* Product.swift in Sources */,
 				8655AAEA279097340053DE0F /* UserDefaultManager.swift in Sources */,
 				862BAC762790792F00A33BA9 /* Summary.swift in Sources */,
+				8689042027988177002E8093 /* UIView+ActivityIndicator.swift in Sources */,
 				862BAC722790787800A33BA9 /* SellerEntity.swift in Sources */,
 				8689041B2798385F002E8093 /* NotificationName.swift in Sources */,
 				8671678F27915DE50046E618 /* UINAvigationController+CustomApperance.swift in Sources */,
 				862B24282795904700F3ACA9 /* FontsManager.swift in Sources */,
 				8652D6A8278F4D76003BB2FE /* APIManager.swift in Sources */,
 				8689041D2798556D002E8093 /* JumiaView.swift in Sources */,
+				8689042227988795002E8093 /* ErrosMessages.swift in Sources */,
 				86890418279837F8002E8093 /* Reachability.swift in Sources */,
 				8652D6BB278F59ED003BB2FE /* APIMainResponse .swift in Sources */,
 				8652D6AA278F4D9D003BB2FE /* APIRouter.swift in Sources */,

@@ -11,7 +11,10 @@ import Combine
 import CombineCocoa
 
 
-class ResultVC: UIViewController, UICollectionViewDelegate {
+class ResultViewController: UIViewController {
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  proprieties
+    //----------------------------------------------------------------------------------------------------------------
     
     private enum Section: Hashable {
         case main
@@ -26,6 +29,10 @@ class ResultVC: UIViewController, UICollectionViewDelegate {
     private var viewModel: ResultVM!
     private var resultView: ResultView!
     
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  Lifecycle methods
+    //----------------------------------------------------------------------------------------------------------------
+    
     override func loadView() {
         let resultView = ResultView()
         self.resultView = resultView
@@ -36,16 +43,22 @@ class ResultVC: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         self.configureDataSource()
         self.bindProductListToCollectionView()
+        self.dataErrorObserving()
+        self.dataLoadingObserving()
         self.resultView.collectionView.delegate = self
     }
     
-    class func createResult(searchFor: String, coordinator: HomeCoordinator) -> ResultVC {
-        let resultVC = ResultVC()
+    class func createResult(searchFor: String, coordinator: HomeCoordinator) -> ResultViewController {
+        let resultVC = ResultViewController()
         let viewModel = ResultVM(searchFor: searchFor)
         resultVC.coordinator = coordinator
         resultVC.viewModel = viewModel
         return resultVC
     }
+    
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  Private methods
+    //----------------------------------------------------------------------------------------------------------------
     
     private func configureDataSource() {
         dataSource = DataSource(collectionView: resultView.collectionView) { collectionView, indexPath, product in
@@ -58,7 +71,7 @@ class ResultVC: UIViewController, UICollectionViewDelegate {
         
     }
     
-    internal func bindProductListToCollectionView() {
+    private func bindProductListToCollectionView() {
         viewModel.resultListPublisher
             .sink { [weak self] productsList in
                 guard let self = self else { return }
@@ -68,8 +81,37 @@ class ResultVC: UIViewController, UICollectionViewDelegate {
                 DispatchQueue.main.async {
                     self.dataSource.apply(self.snapshot, animatingDifferences: true)
                 }
-        }.store(in: &subscription)
+            }.store(in: &subscription)
     }
+    
+    private func dataErrorObserving() {
+        viewModel.errorOccurredWhileGettingDataPublisher
+            .sink { state in
+                DispatchQueue.main.async {
+                    self.resultView.hideAnimatedActivityIndicatorView()
+                    self.resultView.collectionView.isHidden = state
+                    self.resultView.isErrorVisible = state
+                    self.resultView.errorText = ErrorMessages.networkError404.rawValue
+                }
+            }
+            .store(in: &subscription)
+    }
+    
+    private func dataLoadingObserving() {
+        viewModel.isLoadingDataPublisher
+            .sink { state in
+                switch state{
+                case true:
+                    self.resultView.displayAnimatedActivityIndicatorView()
+                case false:
+                    self.resultView.hideAnimatedActivityIndicatorView()
+                }
+            }
+            .store(in: &subscription)
+    }
+}
+
+extension ResultViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = dataSource.itemIdentifier(for: indexPath)

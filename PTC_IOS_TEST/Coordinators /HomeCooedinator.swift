@@ -23,7 +23,7 @@ class HomeCoordinator: ChildCoordinator {
     }
     
     func pushResultVC(searchFor: String) {
-        let resultVC = ResultVC.createResult(searchFor: searchFor, coordinator: self)
+        let resultVC = ResultViewController.createResult(searchFor: searchFor, coordinator: self)
         navigationController.pushViewController(resultVC, animated: true)
     }
     

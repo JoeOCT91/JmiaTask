@@ -12,6 +12,10 @@ import Combine
 protocol ResultVMProtocol: AnyObject {
     var resultListPublisher: Published<[Product]>.Publisher {get}
     var currentValueIndex: CurrentValueSubject<Int ,Never> { get set }
+    var errorOccurredWhileGettingDataPublisher : Published<Bool>.Publisher { get }
+    var isLoadingDataPublisher : Published<Bool>.Publisher { get }
+
+    
 }
 
 class ResultVM: ResultVMProtocol {
@@ -21,7 +25,12 @@ class ResultVM: ResultVMProtocol {
     //----------------------------------------------------------------------------------------------------------------
     private var anyCancelable = Set<AnyCancellable>()
     @Published private var productsList = [Product]()
+    @Published private var isLoadingData = false
+    @Published private var isError = false
     internal var resultListPublisher: Published<[Product]>.Publisher {$productsList}
+    internal var errorOccurredWhileGettingDataPublisher : Published<Bool>.Publisher {$isError}
+    internal var isLoadingDataPublisher: Published<Bool>.Publisher {$isError}
+
     internal var currentValueIndex = CurrentValueSubject<Int, Never>(0)
     
     private var currentPage: Int = 1
@@ -44,15 +53,24 @@ class ResultVM: ResultVMProtocol {
     //=======>MARK: -  Private Methods
     //----------------------------------------------------------------------------------------------------------------
     private func getSearchResultFor(product: String) {
+        isLoadingData = true
         APIManager.searchFor(product: product, page: currentPage)
             .sink { response in
+                self.isLoadingData = false
                 if response.error == nil {
-                    
+                    guard let response = response.value else { return }
+                    if response.success {
+                        self.productsList.append(contentsOf: response.metadata.results)
+                        self.currentPage += 1
+                    } else {
+                        self.isError = true
+                    }
                 } else {
                     switch response.error {
                     case.InternalError404:
-                        break
-                    default: break
+                        self.isError = true
+                    default:
+                        self.isError = true
                     }
                 }
             }
@@ -64,7 +82,6 @@ class ResultVM: ResultVMProtocol {
             guard let self = self else { return }
             if currentIndex + 1 == self.productsList.count {
                 self.getSearchResultFor(product: self.searchKeyword)
-                print("last item reached")
             }
         }.store(in: &anyCancelable)
     }

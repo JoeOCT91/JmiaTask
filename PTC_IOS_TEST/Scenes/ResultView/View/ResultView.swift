@@ -12,11 +12,16 @@ import SwifterSwift
 class ResultView: JumiaView {
     
     internal var collectionView: UICollectionView!
+    internal var headerView = UIView(frame: .zero)
+    internal var changeLayoutButton = UIButton()
+    internal var popularityButton = UIButton()
+    internal var filterButton = UIButton()
     
     override init() {
         super.init()
         self.backgroundColor = ColorName.bgColor.color
         self.setupUI()
+        self.setInternalErrorView()
         }
         
         required init?(coder: NSCoder) {
@@ -26,6 +31,11 @@ class ResultView: JumiaView {
         internal func setupUI(){
             configureCollectionView()
         }
+    
+    func configureHeaderView() {
+
+        
+    }
         
         func configureCollectionView() {
             let viewLayout = Layouts.createTwoColumnFlowLayout()
@@ -36,8 +46,7 @@ class ResultView: JumiaView {
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.backgroundColor = .clear
-            viewLayout.itemSize.height = 500
-            
+            viewLayout.itemSize.height = 350
         }
         
 }
