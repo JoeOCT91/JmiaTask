@@ -12,6 +12,9 @@ import SwifterSwift
 
 class TwoColumnCollectionViewProductCell: UICollectionViewCell {
     
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  Proberties
+    //----------------------------------------------------------------------------------------------------------------
     private let container = UIView(frame: .zero)
     private let viewsStack = UIStackView(frame: .zero)
     private let productImageView = UIImageView(frame: .zero)
@@ -21,8 +24,11 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
     private let priceBeforeLabel = JumiaLabel()
     private let ratingLabel = CosmosView(frame: .zero)
     private let addToCartButton = UIButton(frame: .zero)
+
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  Life cycle methods
+    //----------------------------------------------------------------------------------------------------------------
     
-    // Life cycle methods
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupUI()
@@ -32,7 +38,10 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI() {
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  private methods
+    //----------------------------------------------------------------------------------------------------------------
+        private func setupUI() {
         self.contentView.addSubview(container)
         container.translatesAutoresizingMaskIntoConstraints = false
         container.backgroundColor = ColorName.productCellBG.color
@@ -47,6 +56,14 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
         self.configureViewStacks()
         self.configureAddToCartButton()
         self.configureDiscerptionLabel()
+        self.configureRatingView()
+    }
+    
+    private func configureRatingView() {
+        ratingLabel.settings.updateOnTouch = false
+        ratingLabel.settings.starMargin = 0
+
+        
     }
     
     private func configureContainerView() {
@@ -55,9 +72,8 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
         viewsStack.fillToSuperview()
     }
     
-    func configureDiscerptionLabel() {
+    private func configureDiscerptionLabel() {
         self.productNameLabel.numberOfLines = 2
-        
     }
 
     private func configureViewStacks() {
@@ -71,6 +87,7 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
     
     private func configureDescriptionLabel() {
         productNameLabel.numberOfLines = 2
+        productNameLabel.minimumScaleFactor = 0.75
     }
     
     private func configureAddToCartButton() {
@@ -93,7 +110,6 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
         guard let urlAsString = product.image else { return }
         guard let url  = URL(string: urlAsString) else { return }
         self.productImageView.download(from: url)
-        
 
         // price after discount text
         self.priceLabel.text = "\(String(product.specialPrice)) \(UserDefaultsManager.shared().currencySymbol!)"
@@ -103,8 +119,8 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0,
                                      length: attributeString.length))
         priceBeforeLabel.attributedText = attributeString
-        // rating view
-        guard let rating = product.rating?.average else {
+        // rating view if rating is available
+        guard let rating = product.ratingAverage else {
             ratingLabel.isHidden = true
             return
         }

@@ -23,6 +23,7 @@ class ResultVM: ResultVMProtocol {
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Proberties
     //----------------------------------------------------------------------------------------------------------------
+    
     private var anyCancelable = Set<AnyCancellable>()
     @Published private var productsList = [Product]()
     @Published private var isLoadingData = false
@@ -34,6 +35,7 @@ class ResultVM: ResultVMProtocol {
     
     
     private var currentPage: Int = 1
+    private var availableItems: Int = 0
     private var searchKeyword: String
     
     //----------------------------------------------------------------------------------------------------------------
@@ -61,6 +63,7 @@ class ResultVM: ResultVMProtocol {
                     guard let response = response.value else { return }
                     if response.success {
                         self.productsList.append(contentsOf: response.metadata.results)
+                        self.availableItems = response.metadata.totalProducts
                         self.currentPage += 1
                     } else {
                         self.isError = true
@@ -80,7 +83,7 @@ class ResultVM: ResultVMProtocol {
     private func paginationControl() {
         currentValueIndex.sink { [weak self] currentIndex in
             guard let self = self else { return }
-            if currentIndex + 1 == self.productsList.count {
+            if currentIndex + 1 == self.productsList.count && self.productsList.count < self.availableItems {
                 self.getSearchResultFor(product: self.searchKeyword)
             }
         }.store(in: &anyCancelable)

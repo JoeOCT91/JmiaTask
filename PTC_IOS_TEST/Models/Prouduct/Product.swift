@@ -20,6 +20,7 @@ struct Product: Codable, Hashable {
     let image: String?
     let summary: Summary?
     let sellerEntity: SellerEntity?
+    let ratingAverage: Int?
     
     enum CodingKeys: String, CodingKey {
         case productIdentifier = "sku"
@@ -32,6 +33,7 @@ struct Product: Codable, Hashable {
         case image
         case summary
         case sellerEntity = "seller_entity"
+        case ratingAverage = "rating_average"
     }
 }
 extension Product {
