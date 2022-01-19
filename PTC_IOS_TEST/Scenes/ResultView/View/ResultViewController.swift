@@ -37,7 +37,6 @@ class ResultVC: UIViewController, UICollectionViewDelegate {
         self.configureDataSource()
         self.bindProductListToCollectionView()
         self.resultView.collectionView.delegate = self
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     class func createResult(searchFor: String, coordinator: HomeCoordinator) -> ResultVC {

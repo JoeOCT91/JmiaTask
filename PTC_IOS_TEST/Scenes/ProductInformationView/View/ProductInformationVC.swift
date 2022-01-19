@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import Alamofire
 
 class ProductInformationVC: UIViewController {
     
@@ -45,6 +46,7 @@ class ProductInformationVC: UIViewController {
         self.productInformationView.imagesCollection.delegate = self
         self.configureDataSource()
         self.bindData()
+        self.observeForDataError()
     }
     
     class func createProductInformationView(productIdentifier: String, coordinator: HomeCoordinator) -> ProductInformationVC {
@@ -63,6 +65,17 @@ class ProductInformationVC: UIViewController {
                 self.updateDataSource(urlAsString: productInformation.imageList)
                 self.productInformationView.populateViewWithItemInformation(product: productInformation)
         } .store(in: &subscription)
+    }
+    
+    private func observeForDataError() {
+        viewModel.errorOccurredWhileGettingDataPublisher
+            //.dropFirst()
+            .sink { state in
+                print(state)
+                self.productInformationView.contentTableView.isHidden = state
+                self.productInformationView.isErrorVisible = state
+            }
+            .store(in: &subscription)
     }
     
     private func updateDataSource(urlAsString: [String]?) {

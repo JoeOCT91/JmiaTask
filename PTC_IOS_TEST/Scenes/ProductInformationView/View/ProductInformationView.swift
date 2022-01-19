@@ -11,7 +11,7 @@ import SwifterSwift
 import Cosmos
 
 
-class ProductInformationView: UIView {
+class ProductInformationView: JumiaView {
     
     
     let contentTableView = UITableView()
@@ -31,10 +31,11 @@ class ProductInformationView: UIView {
     
     let padding: CGFloat = 12
     
-    init() {
-        super.init(frame: .zero)
+    override init() {
+        super.init()
         self.backgroundColor = ColorName.bgColor.color
         self.setupViews()
+        self.setInternalErrorView()
     }
     
     required init?(coder: NSCoder) {

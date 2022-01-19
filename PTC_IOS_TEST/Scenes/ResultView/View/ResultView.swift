@@ -9,12 +9,12 @@
 import UIKit
 import SwifterSwift
 
-class ResultView: UIView {
+class ResultView: JumiaView {
     
     internal var collectionView: UICollectionView!
     
-    init() {
-        super.init(frame: .zero)
+    override init() {
+        super.init()
         self.backgroundColor = ColorName.bgColor.color
         self.setupUI()
         }

@@ -16,6 +16,8 @@ internal enum L10n {
   internal static let addToCartIcon = L10n.tr("Localizable", "addToCartIcon")
   /// Home
   internal static let homeVC = L10n.tr("Localizable", "homeVC")
+  /// network.badge.shield.half.filled
+  internal static let networkErrorIcon = L10n.tr("Localizable", "networkErrorIcon")
   /// product details
   internal static let productDetails = L10n.tr("Localizable", "productDetails")
   /// test

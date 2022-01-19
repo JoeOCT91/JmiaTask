@@ -15,11 +15,11 @@ class APIManager {
         return request(APIRouter.getConfiguration)
     }
     
-    class func searchFor(product: String, page: Int) -> AnyPublisher<APIMainResponse<SearchResult>, AFError> {
+    class func searchFor(product: String, page: Int) -> AnyPublisher<DataResponse<APIMainResponse<SearchResult>, JumiaError>, Never> {
         return request(APIRouter.searchFor(product, page))
     }
     
-    class func getProductInformation(identifier: String) -> AnyPublisher<APIMainResponse<Product>, AFError> {
+    class func getProductInformation(identifier: String) -> AnyPublisher<DataResponse<APIMainResponse<Product>, JumiaError>,Never> {
         return request(APIRouter.getProduct(identifier))
     }
 }
@@ -48,21 +48,6 @@ extension APIManager{
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-    
-    
-    // MARK:- The request function to get results as publisher
-    private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible) -> AnyPublisher<T, AFError> {
-        AF.request(urlConvertible)
-            .publishDecodable(type: T.self)
-            
-        
-        
-        
-        return  AF.request(urlConvertible)
-            .publishDecodable(type: T.self)
-        
-            .value()
-            .eraseToAnyPublisher()
-    }
+
 }
 

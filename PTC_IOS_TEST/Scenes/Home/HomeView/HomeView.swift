@@ -8,11 +8,13 @@
 
 import UIKit
 
-class HomeView: UIView {
+class HomeView: JumiaView {
     
-    init(){
-        super.init(frame: .zero)
+    override init(){
+        super.init()
         self.setupView()
+        self.setInternalErrorView()
+        isErrorVisible = false
     }
     
     required init?(coder: NSCoder) {

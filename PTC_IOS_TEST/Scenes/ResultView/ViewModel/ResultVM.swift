@@ -44,21 +44,19 @@ class ResultVM: ResultVMProtocol {
     //=======>MARK: -  Private Methods
     //----------------------------------------------------------------------------------------------------------------
     private func getSearchResultFor(product: String) {
-        APIManager.searchFor(product: product, page: currentPage).sink { error in
-            switch error {
-                
-            case .finished:
-                break
-            case .failure(let fail):
-                print(String(describing: fail))
+        APIManager.searchFor(product: product, page: currentPage)
+            .sink { response in
+                if response.error == nil {
+                    
+                } else {
+                    switch response.error {
+                    case.InternalError404:
+                        break
+                    default: break
+                    }
+                }
             }
-        }
-    receiveValue: { result in
-        self.productsList.append(contentsOf: result.metadata.results)
-        self.currentPage += 1
-        
-    }
-    .store(in: &anyCancelable)
+            .store(in: &anyCancelable)
     }
     
     private func paginationControl() {

@@ -66,6 +66,7 @@
 		86890417279837F8002E8093 /* NetworkStateManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86890415279837F8002E8093 /* NetworkStateManger.swift */; };
 		86890418279837F8002E8093 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86890416279837F8002E8093 /* Reachability.swift */; };
 		8689041B2798385F002E8093 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689041A2798385F002E8093 /* NotificationName.swift */; };
+		8689041D2798556D002E8093 /* JumiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689041C2798556D002E8093 /* JumiaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		86890415279837F8002E8093 /* NetworkStateManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStateManger.swift; sourceTree = "<group>"; };
 		86890416279837F8002E8093 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8689041A2798385F002E8093 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		8689041C2798556D002E8093 /* JumiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumiaView.swift; sourceTree = "<group>"; };
 		BA046DC87C5C507927E7C7EC /* Pods-PTC_IOS_TEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.release.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.release.xcconfig"; sourceTree = "<group>"; };
 		CFF635F739EBE134E0A65360 /* Pods-PTC_IOS_TEST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTC_IOS_TEST.debug.xcconfig"; path = "Target Support Files/Pods-PTC_IOS_TEST/Pods-PTC_IOS_TEST.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -374,6 +376,7 @@
 		8655AAE8279095B60053DE0F /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				8689041C2798556D002E8093 /* JumiaView.swift */,
 				862B23F52795844500F3ACA9 /* JumiaLabel.swift */,
 				8671679A27919C670046E618 /* Cells */,
 			);
@@ -696,6 +699,7 @@
 				8671678F27915DE50046E618 /* UINAvigationController+CustomApperance.swift in Sources */,
 				862B24282795904700F3ACA9 /* FontsManager.swift in Sources */,
 				8652D6A8278F4D76003BB2FE /* APIManager.swift in Sources */,
+				8689041D2798556D002E8093 /* JumiaView.swift in Sources */,
 				86890418279837F8002E8093 /* Reachability.swift in Sources */,
 				8652D6BB278F59ED003BB2FE /* APIMainResponse .swift in Sources */,
 				8652D6AA278F4D9D003BB2FE /* APIRouter.swift in Sources */,

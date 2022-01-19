@@ -1,16 +1,17 @@
-# ptc_ios_test
+# ptc_iOS_test
+
+Xcode Version 13.2.1 (13C100)
+deployment iOS 14.0
 
 # frameWorks 
-
 - UIKit
 - Combine
 - Foundation
 
 # 3rd party frameworks 
-
 - Alamofire "to handle netWork calls and decode Date"
 - combineCocoa "make combine work way better with UIKit elements"
-- swiftGen "to control resources and organise it in a way make modifications way more easy"
+- swiftGen "to control resources and organize it in a way make modifications way more easy"
 - Cosmos "to handle rating views" 
 
 
@@ -43,4 +44,3 @@ The project contains the following:
         - Price, old price and discount;
         - Rating;
         - Description
-        
