@@ -11,29 +11,58 @@ import Combine
 
 class APIManager {
     
-    class func getConfigurations(completion: @escaping (Result<APIMainResponse, Error>) -> ()) {
-        request(APIRouter.getConfiguration) { result in
-            completion(result)
-        }
+    class func getConfiguration() -> AnyPublisher<DataResponse<APIMainResponse<Configuration>, JumiaError>, Never> {
+        return request(APIRouter.getConfiguration)
     }
     
+    class func searchFor(product: String, page: Int) -> AnyPublisher<APIMainResponse<SearchResult>, AFError> {
+        return request(APIRouter.searchFor(product, page))
+    }
     
-
+    class func getProductInformation(identifier: String) -> AnyPublisher<APIMainResponse<Product>, AFError> {
+        return request(APIRouter.getProduct(identifier))
+    }
 }
 
 extension APIManager{
     
-    // MARK:- The request function to get results in a closure
-    private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible, completion:  @escaping (Result<T, Error>) -> ()) {
-        // Trigger the HttpRequest using AlamoFire
-        AF.request(urlConvertible).responseDecodable { (response: AFDataResponse<T>) in
-            switch response.result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
+    enum JumiaError: Error {
+    case InternalError404
+    case networkError(_ error: AFError)
+    }
+
+    // MARK:- The request function to get results as publisher
+    private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible) -> AnyPublisher<DataResponse<T, JumiaError>, Never> {
+        return AF.request(urlConvertible)
+            .publishDecodable(type: T.self)
+            .map { response in
+                response.mapError { error in
+                    
+                    if response.response?.statusCode == 404 {
+                        let error = JumiaError.InternalError404
+                        return error
+                    }
+                    return JumiaError.networkError(error)
+                }
             }
-        }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    
+    // MARK:- The request function to get results as publisher
+    private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible) -> AnyPublisher<T, AFError> {
+        AF.request(urlConvertible)
+            .publishDecodable(type: T.self)
+            
+        
+        
+        
+        return  AF.request(urlConvertible)
+            .publishDecodable(type: T.self)
+        
+            .value()
+            .eraseToAnyPublisher()
     }
 }
 

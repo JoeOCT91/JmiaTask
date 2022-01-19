@@ -1,26 +1,56 @@
 PODS:
   - Alamofire (5.5.0)
-  - SDWebImage (5.12.2):
-    - SDWebImage/Core (= 5.12.2)
-  - SDWebImage/Core (5.12.2)
+  - CombineCocoa (0.4.0)
+  - Cosmos (23.0.0)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
   - SwiftGen (6.5.1)
 
 DEPENDENCIES:
   - Alamofire
-  - SDWebImage
+  - CombineCocoa
+  - Cosmos
+  - SwifterSwift
   - SwiftGen
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - SDWebImage
+    - CombineCocoa
+    - Cosmos
+    - SwifterSwift
     - SwiftGen
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
-  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
+  CombineCocoa: 68a050228ce7c53c1c5ac2c57cccf92a7f5c5085
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
 
-PODFILE CHECKSUM: c4fa844df0e8c9686fce5e3d3175b1a1dd260547
+PODFILE CHECKSUM: e22ba4829d643c95aad62af413bc50d85199e54f
 
 COCOAPODS: 1.11.2

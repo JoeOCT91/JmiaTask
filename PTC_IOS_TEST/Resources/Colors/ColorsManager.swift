@@ -18,9 +18,24 @@ internal struct ColorName {
   internal let rgbaValue: UInt32
   internal var color: Color { return Color(named: self) }
 
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#f3f3f3"></span>
+  /// Alpha: 100% <br/> (0xf3f3f3ff)
+  internal static let bgColor = ColorName(rgbaValue: 0xf3f3f3ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#e1e6e9"></span>
+  /// Alpha: 100% <br/> (0xe1e6e9ff)
+  internal static let navBarBGColor = ColorName(rgbaValue: 0xe1e6e9ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#e7903d"></span>
+  /// Alpha: 100% <br/> (0xe7903dff)
+  internal static let addToCartBGColor = ColorName(rgbaValue: 0xe7903dff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#000000"></span>
   /// Alpha: 100% <br/> (0x000000ff)
-  internal static let white = ColorName(rgbaValue: 0x000000ff)
+  internal static let blackColor = ColorName(rgbaValue: 0x000000ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#ffffff"></span>
+  /// Alpha: 100% <br/> (0xffffffff)
+  internal static let productCellBG = ColorName(rgbaValue: 0xffffffff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#f5f5f4"></span>
+  /// Alpha: 100% <br/> (0xf5f5f4ff)
+  internal static let productInfoTableViewBG = ColorName(rgbaValue: 0xf5f5f4ff)
 }
 // swiftlint:enable identifier_name line_length type_body_length
 

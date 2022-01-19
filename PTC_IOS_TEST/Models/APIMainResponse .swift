@@ -9,7 +9,8 @@
 import Foundation
 
 // MARK: - APIMainResponse
-struct APIMainResponse: Codable {
+struct APIMainResponse<T: Codable>: Codable {
     let success: Bool
-    let metadata: Metadata
+    let metadata: T
 }
+

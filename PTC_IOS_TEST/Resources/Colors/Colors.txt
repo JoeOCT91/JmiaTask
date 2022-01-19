@@ -1,2 +1,9 @@
-white : #000000
+"BGColor" : #f3f3f3
+"productCellBG" : #FFFFFF
+"NavBarBGColor" : #e1e6e9
+"blackColor" : #000000
+
+"productInfoTableViewBG" : #F5F5F4
+"addToCartBGColor" : #E7903D
+
 

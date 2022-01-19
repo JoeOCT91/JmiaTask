@@ -6,9 +6,8 @@
 //  Copyright © 2022 Jumia. All rights reserved.
 //
 
-import Foundation
 import UIKit
-
+import SwifterSwift
 
 protocol Coordinator: AnyObject {
     var navigationController: UINavigationController  { get set }
@@ -19,7 +18,6 @@ protocol Coordinator: AnyObject {
 protocol ChildCoordinator: AnyObject {
     var navigationController: UINavigationController { get set }
     var parentCoordinator: AppCoordinator? { get }
-    var tag: Int { get }
     func start()
 }
 
@@ -41,4 +39,13 @@ class AppCoordinator: Coordinator {
         window.rootViewController = vc
         window.makeKeyAndVisible()
     }
+    
+    func presentHomeScreenAsWidowMainView() {
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        self.childCoordinators.append(homeCoordinator)
+        homeCoordinator.parentCoordinator = self
+        homeCoordinator.start()
+        self.window.switchRootViewController(to: navigationController, animated: true, options: .curveEaseIn)
+    }
+
 }

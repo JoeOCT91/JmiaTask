@@ -10,6 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Add To Cart
+  internal static let addToCart = L10n.tr("Localizable", "addToCart")
+  /// cart.badge.plus
+  internal static let addToCartIcon = L10n.tr("Localizable", "addToCartIcon")
+  /// Home
+  internal static let homeVC = L10n.tr("Localizable", "homeVC")
+  /// product details
+  internal static let productDetails = L10n.tr("Localizable", "productDetails")
   /// test
   internal static let test = L10n.tr("Localizable", "test")
 }

@@ -15,3 +15,10 @@ colors:
   outputs:
     templateName: swift5
     output: ptc_ios_test/Resources/Colors/ColorsManager.swift
+
+fonts:
+  inputs:
+    - ptc_ios_test/Resources/Fonts/Nunito
+  outputs:
+    templateName: swift5
+    output: ptc_ios_test/Resources/Fonts/FontsManager.swift

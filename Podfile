@@ -6,8 +6,10 @@ target 'PTC_IOS_TEST' do
   use_frameworks!
 
   # Pods for PTC_IOS_TEST
-	pod 'Alamofire'
-    pod 'SDWebImage'
+    pod 'Alamofire'
     pod 'SwiftGen'
+    pod 'CombineCocoa'
+    pod 'SwifterSwift'
+    pod 'Cosmos'
 
 end
