@@ -26,7 +26,7 @@ class ResultViewController: UIViewController {
     private var dataSource: DataSource!
     private weak var coordinator: HomeCoordinator!
     private var subscription = Set<AnyCancellable>()
-    private var viewModel: ResultVM!
+    private var viewModel: ResultVMProtocol!
     private var resultView: ResultView!
     
     //----------------------------------------------------------------------------------------------------------------

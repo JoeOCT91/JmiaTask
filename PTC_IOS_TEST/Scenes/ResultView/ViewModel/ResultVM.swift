@@ -30,8 +30,8 @@ class ResultVM: ResultVMProtocol {
     internal var resultListPublisher: Published<[Product]>.Publisher {$productsList}
     internal var errorOccurredWhileGettingDataPublisher : Published<Bool>.Publisher {$isError}
     internal var isLoadingDataPublisher: Published<Bool>.Publisher {$isError}
-
     internal var currentValueIndex = CurrentValueSubject<Int, Never>(0)
+    
     
     private var currentPage: Int = 1
     private var searchKeyword: String
