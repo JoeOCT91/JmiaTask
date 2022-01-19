@@ -62,8 +62,6 @@ class TwoColumnCollectionViewProductCell: UICollectionViewCell {
     private func configureRatingView() {
         ratingLabel.settings.updateOnTouch = false
         ratingLabel.settings.starMargin = 0
-
-        
     }
     
     private func configureContainerView() {

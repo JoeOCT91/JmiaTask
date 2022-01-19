@@ -12,6 +12,9 @@ import Alamofire
 
 class ProductInformationVC: UIViewController {
     
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  proprieties
+    //----------------------------------------------------------------------------------------------------------------
     
     private enum Section: Hashable {
         case main
@@ -27,13 +30,14 @@ class ProductInformationVC: UIViewController {
     private var snapshot = DataSourceSnapshot()
     private var dataSource: DataSource!
     
-    
     private var viewModel: ProductInformationVMProtocol!
     private var coordinator: HomeCoordinator?
     private var productInformationView: ProductInformationView!
     private var subscription = Set<AnyCancellable>()
-
     
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  lifecycle methods ...
+    //----------------------------------------------------------------------------------------------------------------
     
     override func loadView() {
         let productInformationView = ProductInformationView()
@@ -44,9 +48,10 @@ class ProductInformationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.productInformationView.imagesCollection.delegate = self
+        self.observingDataLoading()
+        self.observeForDataError()
         self.configureDataSource()
         self.bindData()
-        self.observeForDataError()
     }
     
     class func createProductInformationView(productIdentifier: String, coordinator: HomeCoordinator) -> ProductInformationVC {
@@ -57,10 +62,18 @@ class ProductInformationVC: UIViewController {
         return productInformationVC
     }
     
+    deinit {
+        print("\(String(describing: self)) has been deinitializd ...)")
+    }
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  Private methods ...
+    //----------------------------------------------------------------------------------------------------------------
+
     private func bindData() {
         viewModel.productInformationPublisher
             .dropFirst()
-            .sink { productInformation in
+            .sink { [weak self] productInformation in
+                guard let self = self else { return }
                 guard let productInformation = productInformation else { return }
                 self.updateDataSource(urlAsString: productInformation.imageList)
                 self.productInformationView.populateViewWithItemInformation(product: productInformation)
@@ -69,13 +82,30 @@ class ProductInformationVC: UIViewController {
     
     private func observeForDataError() {
         viewModel.errorOccurredWhileGettingDataPublisher
-            //.dropFirst()
-            .sink { state in
-                print(state)
+            .sink { [weak self] state in
+                guard let self = self else { return }
                 self.productInformationView.contentTableView.isHidden = state
                 self.productInformationView.isErrorVisible = state
+                self.productInformationView.errorText = ErrorMessages.noDataFound200.rawValue
             }
             .store(in: &subscription)
+    }
+    
+    private func observingDataLoading() {
+        viewModel.isLoadingDataPublisher
+            .sink { [weak self ]state in
+                guard let self = self else { return }
+                switch state {
+                case true:
+                    self.productInformationView.contentTableView.isHidden = true
+                    self.productInformationView.displayAnimatedActivityIndicatorView()
+                case false:
+                    self.productInformationView.contentTableView.isHidden = false
+                    self.productInformationView.hideAnimatedActivityIndicatorView()
+                }
+            }
+            .store(in: &subscription)
+        
     }
     
     private func updateDataSource(urlAsString: [String]?) {
@@ -84,7 +114,8 @@ class ProductInformationVC: UIViewController {
         self.snapshot = DataSourceSnapshot()
         self.snapshot.appendSections([Section.main])
         self.snapshot.appendItems(items)
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             self.dataSource.apply(self.snapshot, animatingDifferences: true)
         }
     }
@@ -93,7 +124,6 @@ class ProductInformationVC: UIViewController {
         dataSource = DataSource(collectionView: productInformationView.imagesCollection) { collectionView, indexPath, item in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.slideShowCell,
                                                           for: indexPath) as! SlideShowCell
-            
             cell.setImageWith(url: item.urlAsString)
             return cell
         }

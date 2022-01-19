@@ -47,7 +47,7 @@
 		8652D6AA278F4D9D003BB2FE /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6A9278F4D9D003BB2FE /* APIRouter.swift */; };
 		8652D6AC278F4E40003BB2FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6AB278F4E40003BB2FE /* Constants.swift */; };
 		8652D6B0278F4F20003BB2FE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8652D6AF278F4F20003BB2FE /* README.md */; };
-		8652D6B3278F5124003BB2FE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B2278F5124003BB2FE /* SplashScreen.swift */; };
+		8652D6B3278F5124003BB2FE /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B2278F5124003BB2FE /* SplashScreenViewController.swift */; };
 		8652D6B5278F5169003BB2FE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B4278F5169003BB2FE /* AppCoordinator.swift */; };
 		8652D6B7278F53FE003BB2FE /* SplashScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B6278F53FE003BB2FE /* SplashScreenVM.swift */; };
 		8652D6B9278F59BA003BB2FE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652D6B8278F59BA003BB2FE /* Configuration.swift */; };
@@ -115,7 +115,7 @@
 		8652D6A9278F4D9D003BB2FE /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		8652D6AB278F4E40003BB2FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8652D6AF278F4F20003BB2FE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8652D6B2278F5124003BB2FE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		8652D6B2278F5124003BB2FE /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		8652D6B4278F5169003BB2FE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8652D6B6278F53FE003BB2FE /* SplashScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVM.swift; sourceTree = "<group>"; };
 		8652D6B8278F59BA003BB2FE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -449,7 +449,7 @@
 		8689040A27983432002E8093 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8652D6B2278F5124003BB2FE /* SplashScreen.swift */,
+				8652D6B2278F5124003BB2FE /* SplashScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -698,7 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8652D6B3278F5124003BB2FE /* SplashScreen.swift in Sources */,
+				8652D6B3278F5124003BB2FE /* SplashScreenViewController.swift in Sources */,
 				8652D6C0278F8D47003BB2FE /* ResultViewController.swift in Sources */,
 				8652D6AC278F4E40003BB2FE /* Constants.swift in Sources */,
 				8652D6C2278F8D72003BB2FE /* ResultVM.swift in Sources */,

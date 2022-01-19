@@ -20,14 +20,13 @@ class ProductInformationView: JumiaView {
     var imagesCollection: UICollectionView!
 
     let productImagesStack = UIStackView(frame: .zero)
-    let productNameLabel = UILabel(frame: .zero)
-    let brandLabel = UILabel(frame: .zero)
-    let priceLabel = UILabel(frame: .zero)
-    let priceBeforeLabel = UILabel(frame: .zero)
-    let shortDescriptionLabel = UILabel(frame: .zero)
-    let descriptionLabel = UILabel(frame: .zero)
+    let productNameLabel = JumiaLabel()
+    let brandLabel = JumiaLabel()
+    let priceLabel = JumiaLabel()
+    let priceBeforeLabel = JumiaLabel()
+    let shortDescriptionLabel = JumiaLabel()
+    let descriptionLabel = JumiaLabel()
     let ratingView = CosmosView(frame: .zero)
-    
     
     let padding: CGFloat = 12
     
@@ -40,6 +39,10 @@ class ProductInformationView: JumiaView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print(String(describing: self) + " has been deisnalized... ")
     }
     
     private func setupViews() {
@@ -64,6 +67,8 @@ class ProductInformationView: JumiaView {
         imagesCollection.register(SlideShowCell.self, forCellWithReuseIdentifier: Cells.slideShowCell)
         imagesCollection.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height + 20).isActive = true
         imagesCollection.widthAnchor.constraint(equalToConstant: Measurements.screenWidth).isActive = true
+        imagesCollection.showsVerticalScrollIndicator = false
+        imagesCollection.showsHorizontalScrollIndicator = false
     }
     
     private func configureImageView() {
@@ -74,7 +79,8 @@ class ProductInformationView: JumiaView {
   
     
     private func configureRatingView() {
-        
+        ratingView.settings.updateOnTouch = false
+        ratingView.settings.starMargin = 0
     }
     
     internal func populateViewWithItemInformation(product: Product) {
@@ -84,9 +90,10 @@ class ProductInformationView: JumiaView {
         self.priceBeforeLabel.text = "\(product.price) \(UserDefaultsManager.shared().currencySymbol!)"
         self.shortDescriptionLabel.text = product.summary?.shortDescription
         self.ratingView.rating = Double(product.rating!.average)
-        
         let description = product.summary?.summaryDescription.replacingOccurrences(of: "-", with: "\n- ")
         self.descriptionLabel.text = description
+        guard let url = URL(string: product.imageList?.first) else { return }
+        self.imageView.download(from: url)
         contentTableView.reloadData()
     }
     
@@ -133,7 +140,7 @@ extension ProductInformationView: UITableViewDataSource, UITableViewDelegate {
         containerView.addArrangedSubviews(containerViews)
         containerView.axis = .vertical
         containerView.distribution = .fillEqually
-        containerView.spacing = 8
+        containerView.spacing = 2
         containerView.isLayoutMarginsRelativeArrangement = true
         containerView.layoutMargins = EdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         return cell
@@ -162,9 +169,11 @@ extension ProductInformationView: UITableViewDataSource, UITableViewDelegate {
         containerView.fillToSuperview()
         let headerView = createHeader(title: L10n.productDetails)
         containerView.addArrangedSubviews([headerView ,descriptionLabel])
+
         containerView.axis = .vertical
         containerView.distribution = .fill
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.textEdgeInsets = UIEdgeInsets(top: 0, left: padding, bottom: padding, right: padding)
         return cell
     }
     
@@ -174,8 +183,8 @@ extension ProductInformationView: UITableViewDataSource, UITableViewDelegate {
         stack.distribution = .fill
         let label = JumiaLabel(title: title.uppercased())
         label.font = UIFont(font: FontFamily.Nunito.bold, size: 22)
-        label.byInsets = UIEdgeInsets(top: padding, left: padding, bottom: 0, right: padding)
-            label.paddingLeft = padding
+        label.byInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        label.paddingLeft = padding
         stack.addArrangedSubview(label)
         return stack
     }

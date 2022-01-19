@@ -14,8 +14,6 @@ protocol ResultVMProtocol: AnyObject {
     var currentValueIndex: CurrentValueSubject<Int ,Never> { get set }
     var errorOccurredWhileGettingDataPublisher : Published<Bool>.Publisher { get }
     var isLoadingDataPublisher : Published<Bool>.Publisher { get }
-
-    
 }
 
 class ResultVM: ResultVMProtocol {

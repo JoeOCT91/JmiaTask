@@ -25,6 +25,7 @@ class ResultViewController: UIViewController {
     private typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Product>
     private var snapshot = DataSourceSnapshot()
     private var dataSource: DataSource!
+    
     private weak var coordinator: HomeCoordinator!
     private var subscription = Set<AnyCancellable>()
     private var viewModel: ResultVMProtocol!
@@ -42,11 +43,11 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.resultView.collectionView.delegate = self
         self.configureDataSource()
         self.bindProductListToCollectionView()
         self.dataErrorObserving()
         self.dataLoadingObserving()
-        self.resultView.collectionView.delegate = self
     }
     
     class func createResult(searchFor: String, coordinator: HomeCoordinator) -> ResultViewController {
@@ -55,6 +56,10 @@ class ResultViewController: UIViewController {
         resultVC.coordinator = coordinator
         resultVC.viewModel = viewModel
         return resultVC
+    }
+    
+    deinit {
+        print("\(String(describing: self)) has been deinitializd ...)")
     }
     
     //----------------------------------------------------------------------------------------------------------------
@@ -79,16 +84,22 @@ class ResultViewController: UIViewController {
                 self.snapshot = DataSourceSnapshot()
                 self.snapshot.appendSections([Section.main])
                 self.snapshot.appendItems(productsList)
-                DispatchQueue.main.async {
-                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
-                }
+                self.updateDataSource()
             }.store(in: &subscription)
+    }
+    
+    private func updateDataSource() {
+        DispatchQueue.main.async {
+                self.dataSource.apply(self.snapshot, animatingDifferences: true)
+        }
     }
     
     private func dataErrorObserving() {
         viewModel.errorOccurredWhileGettingDataPublisher
-            .sink { state in
-                DispatchQueue.main.async {
+            .sink { [weak self] state in
+                guard let self = self else { return }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
                     self.resultView.hideAnimatedActivityIndicatorView()
                     self.resultView.collectionView.isHidden = state
                     self.resultView.isErrorVisible = state
@@ -100,14 +111,14 @@ class ResultViewController: UIViewController {
     
     private func dataLoadingObserving() {
         viewModel.isLoadingDataPublisher
-            .sink { state in
-                switch state{
-                case true:
-                    self.resultView.displayAnimatedActivityIndicatorView()
-                case false:
-                    self.resultView.hideAnimatedActivityIndicatorView()
+            .sink {  state in
+                    switch state {
+                    case true:
+                        self.resultView.displayAnimatedActivityIndicatorView()
+                    case false:
+                        self.resultView.hideAnimatedActivityIndicatorView()
+                    }
                 }
-            }
             .store(in: &subscription)
     }
 }

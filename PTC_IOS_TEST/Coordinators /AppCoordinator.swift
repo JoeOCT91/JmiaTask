@@ -35,8 +35,8 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = SplashScreenVC.createSplashScreen(coordinator: self)
-        window.rootViewController = vc
+        let splashViewController = SplashScreenViewController.createSplashScreen(coordinator: self)
+        window.rootViewController = splashViewController
         window.makeKeyAndVisible()
     }
     

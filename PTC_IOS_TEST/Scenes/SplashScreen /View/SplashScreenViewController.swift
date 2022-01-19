@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-class SplashScreenVC: UIViewController {
+class SplashScreenViewController: UIViewController {
     
     private var subscription = Set<AnyCancellable>()
     private weak var coordinator: AppCoordinator?
@@ -25,12 +25,16 @@ class SplashScreenVC: UIViewController {
         self.configureSpinner()
     }
     
-    class func createSplashScreen(coordinator: AppCoordinator) -> SplashScreenVC {
-        let splashScreen = SplashScreenVC()
+    class func createSplashScreen(coordinator: AppCoordinator) -> SplashScreenViewController {
+        let splashScreen = SplashScreenViewController()
         let viewModel = SplashScreenVM()
         splashScreen.coordinator = coordinator
         splashScreen.viewModel = viewModel
         return splashScreen
+    }
+    
+    deinit {
+        print("\(String(describing: self)) has been deisnalized...")
     }
     
     private func configureLogo() {
@@ -66,7 +70,8 @@ class SplashScreenVC: UIViewController {
                     self.spinner.stopAnimating()
                     self.coordinator?.presentHomeScreenAsWidowMainView()
                 case false:
-                    print("failed")
+                    self.spinner.stopAnimating()
+                    self.spinner.removeFromSuperview()
                 }
             }
             .store(in: &subscription)

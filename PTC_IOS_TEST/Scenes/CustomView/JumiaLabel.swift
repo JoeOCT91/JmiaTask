@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @IBDesignable
 class JumiaLabel: UILabel {
     
@@ -49,6 +50,7 @@ class JumiaLabel: UILabel {
         set { textEdgeInsets.bottom = newValue }
         get { return textEdgeInsets.bottom }
     }
+    
     @IBInspectable
     var byInsets: UIEdgeInsets {
         set { textEdgeInsets = newValue }
